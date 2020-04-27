@@ -1,0 +1,24 @@
+{
+  "name": "team-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.663.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakedheath123/team-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakedheath123/team-project/issues"
+  },
+  "homepage": "https://github.com/jakedheath123/team-project#readme"
+}

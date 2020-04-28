@@ -1,3 +1,6 @@
+const JasminsBirds = require('./JasminsBirds');
+const SamsBirds = require('./SamsBirds');
+
 const AWS = require('aws-sdk');
 
 AWS.config.update({
@@ -7,33 +10,20 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
+const JasminsBirdsMapped = JasminsBirds.map((bird) => {
+  return { PutRequest: { Item: bird } };
+});
+const SamsBirdsMapped = SamsBirds.map((bird) => {
+  return { PutRequest: { Item: bird } };
+});
+const Birds = [...SamsBirdsMapped, ...JasminsBirdsMapped];
+
 const params = {
   RequestItems: {
-    Birds: [
-      {
-        PutRequest: {
-          Item: {
-            Location: 'North Leeds',
-            Bird_id: 87,
-            Bird_name: 'House Martin'
-          }
-        }
-      },
-      {
-        PutRequest: {
-          Item: {
-            Location: 'North Leeds',
-
-            Bird_id: 78,
-            Bird_name: 'Common Tit'
-          }
-        }
-      }
-    ]
+    Birds
   }
 };
 
-console.log('adding new birds, tweet, tweet');
 docClient.batchWrite(params, (err, data) => {
   if (err) {
     console.error('unable to add bird', JSON.stringify(err, null, 2));

@@ -9,22 +9,22 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 const params = {
   TableName: 'Birds',
-  KeyConditionExpression: '#Location = :Location AND #Bird_id > :Bird_id',
+  ProjectionExpression: 'Bird_name, Features',
+
+  FilterExpression: '#Bird_name = :Bird_name',
 
   ExpressionAttributeNames: {
-    '#Location': 'Location',
-    '#Bird_id': 'Bird_id'
+    '#Bird_name': 'Bird_name'
   },
   ExpressionAttributeValues: {
-    ':Location': 'North Leeds',
-    ':Bird_id': 8
+    ':Bird_name': 'House Martin'
   }
 };
 
-docClient.query(params, (err, data) => {
+docClient.scan(params, (err, data) => {
   if (err) {
     console.error('error', JSON.stringify(err, null, 2));
   } else {
-    console.log('heres ya queries', JSON.stringify(data, null, 2));
+    console.log('heres ya queries', JSON.stringify(data.Items[0], null, 2));
   }
 });

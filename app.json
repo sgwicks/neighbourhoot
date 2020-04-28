@@ -1,0 +1,17 @@
+{
+  "name": "NorthcodersProject",
+  "displayName": "NorthcodersProject",
+  "expo": {
+    "name": "NorthcodersProject",
+    "slug": "NorthcodersProject",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

@@ -1,12 +1,50 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 
-const HomeScreen = props => {
+const HomeScreen = ({ navigation }) => {
+  const { navigate } = navigation;
   return (
-    <View>
-      <Text>This is the Home Page Screen</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Welcome to Neighbourhoot!</Text>
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={() => navigation.navigate("Login")}
+      >
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={() => navigation.navigate("SignUp")}
+      >
+        <Text style={styles.buttonText}>Sign Up</Text>
+      </TouchableOpacity>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ebebeb",
+  },
+  text: {
+    color: "#101010",
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  buttonContainer: {
+    backgroundColor: "blue",
+    borderRadius: 5,
+    padding: 10,
+    margin: 20,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: "white",
+  },
+});
 
 export default HomeScreen;

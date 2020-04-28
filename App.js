@@ -1,17 +1,29 @@
 import * as React from "react";
-import { Platform, StyleSheet, Button, View } from "react-native";
+import { Platform, StyleSheet } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`
 });
 
+const Stack = createStackNavigator();
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Button title="Login" />
-      <Button title="Sign Up" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ title: "Welcome" }}
+        />
+        <Stack.Screen name="Profile" component={Profile} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

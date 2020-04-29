@@ -14,12 +14,12 @@ const SignUpScreen = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [check, passwordCheck] = useState(true);
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
@@ -39,9 +39,9 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
+    const currentDate = selectedDate || dateOfBirth;
     setShow(Platform.OS === "ios");
-    setDate(currentDate);
+    setDateOfBirth(new Date(currentDate));
   };
 
   const showMode = (currentMode) => {
@@ -81,11 +81,9 @@ const SignUpScreen = ({ navigation }) => {
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
-          timeZoneOffsetInMinutes={0}
-          value={date}
+          value={dateOfBirth}
           mode={mode}
-          is24Hour={true}
-          display="default"
+          display="spinner"
           onChange={onChange}
         />
       )}

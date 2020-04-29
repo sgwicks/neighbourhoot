@@ -3,6 +3,6 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "dc-krd",
+  "urlRandomness": "dk-dig",
   "https": true
 }

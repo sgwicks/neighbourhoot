@@ -22,26 +22,22 @@ const SignUpScreen = ({ navigation }) => {
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
-  const dateConverter = date => {
-    const utcDate = new Date(date).toUTCString();
-    return utcDate;
-  };
-
   const submit = () => {
-    //const changedDate = dateOfBirth.toUTCString()
-    const changedDate = dateConverter(dateOfBirth);
-    const userSignUp = {
-      firstName,
-      lastName,
-      email,
-      password,
-      dateOfBirth: changedDate,
-      confirmPassword
-    };
-    userSignUp.password !== userSignUp.confirmPassword
-      ? passwordCheck(false)
-      : setSubmitted(true);
-    console.log(userSignUp);
+    const changedDate = dateOfBirth.toUTCString();
+    if (password !== confirmPassword) {
+      return passwordCheck(false);
+    } else {
+      const userSignUp = {
+        firstName,
+        lastName,
+        email,
+        password,
+        dateOfBirth: changedDate,
+        confirmPassword
+      };
+      setSubmitted(true);
+      console.log(userSignUp);
+    }
   };
 
   const onChange = (event, selectedDate) => {

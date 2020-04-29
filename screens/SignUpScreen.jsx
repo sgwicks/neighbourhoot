@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Button,
+  Button
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
@@ -19,18 +19,24 @@ const SignUpScreen = ({ navigation }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [check, passwordCheck] = useState(true);
-  // const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
+  const dateConverter = date => {
+    const utcDate = new Date(date).toUTCString();
+    return utcDate;
+  };
+
   const submit = () => {
+    //const changedDate = dateOfBirth.toUTCString()
+    const changedDate = dateConverter(dateOfBirth);
     const userSignUp = {
       firstName,
       lastName,
       email,
       password,
-      dateOfBirth,
-      confirmPassword,
+      dateOfBirth: changedDate,
+      confirmPassword
     };
     userSignUp.password !== userSignUp.confirmPassword
       ? passwordCheck(false)
@@ -41,10 +47,10 @@ const SignUpScreen = ({ navigation }) => {
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || dateOfBirth;
     setShow(Platform.OS === "ios");
-    setDateOfBirth(new Date(currentDate));
+    setDateOfBirth(currentDate);
   };
 
-  const showMode = (currentMode) => {
+  const showMode = currentMode => {
     setShow(true);
     setMode(currentMode);
   };
@@ -59,19 +65,19 @@ const SignUpScreen = ({ navigation }) => {
       <Text>Enter your first name</Text>
       <TextInput
         style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        onChangeText={(text) => setFirstName(text)}
+        onChangeText={text => setFirstName(text)}
         value={firstName}
       />
       <Text>Enter your surname</Text>
       <TextInput
         style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        onChangeText={(text) => setLastName(text)}
+        onChangeText={text => setLastName(text)}
         value={lastName}
       />
       <Text>Enter your email address</Text>
       <TextInput
         style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        onChangeText={(text) => setEmail(text)}
+        onChangeText={text => setEmail(text)}
         value={email}
         keyboardType="email-address"
         autoCapitalize="none"
@@ -92,7 +98,7 @@ const SignUpScreen = ({ navigation }) => {
       </Text>
       <TextInput
         style={check ? styles.defaultPasswords : styles.unmatchedPasswords}
-        onChangeText={(text) => setPassword(text)}
+        onChangeText={text => setPassword(text)}
         value={password}
         secureTextEntry={true}
         keyboardType="default"
@@ -104,7 +110,7 @@ const SignUpScreen = ({ navigation }) => {
       </Text>
       <TextInput
         style={check ? styles.defaultPasswords : styles.unmatchedPasswords}
-        onChangeText={(text) => setConfirmPassword(text)}
+        onChangeText={text => setConfirmPassword(text)}
         value={confirmPassword}
         secureTextEntry={true}
         keyboardType="default"
@@ -122,31 +128,31 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ebebeb",
+    backgroundColor: "#ebebeb"
   },
   text: {
     color: "#101010",
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   buttonContainer: {
     backgroundColor: "blue",
     borderRadius: 5,
     padding: 10,
-    margin: 20,
+    margin: 20
   },
   buttonText: {
     fontSize: 20,
-    color: "white",
+    color: "white"
   },
   unmatchedPasswords: {
-    backgroundColor: "red",
+    backgroundColor: "red"
   },
   defaultPasswords: {
     height: 40,
     borderColor: "gray",
-    borderWidth: 1,
-  },
+    borderWidth: 1
+  }
 });
 
 export default SignUpScreen;

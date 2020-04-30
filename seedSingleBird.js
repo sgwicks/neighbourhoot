@@ -11,9 +11,9 @@ const table = 'Birds';
 
 const Location = 'North Leeds';
 
-const Bird_id = 342;
+const Bird_id = 555;
 
-const Bird_name = 'Sparrow';
+const Bird_name = 'John';
 
 const params = {
   TableName: table,
@@ -21,14 +21,14 @@ const params = {
     Location,
     Bird_id,
     Bird_name
-  }
+  },
+  ReturnValues: 'ALL_OLD'
 };
 
-console.log('adding a single little bird');
 docClient.put(params, (err, data) => {
   if (err) {
     console.error('error', JSON.stringify(err, null, 2));
   } else {
-    console.log('heres ya birdy', JSON.stringify(data, null, 2));
+    console.log('Added item:', JSON.stringify(data, null, 2));
   }
 });

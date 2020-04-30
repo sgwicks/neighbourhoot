@@ -9,7 +9,7 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 const params = {
   TableName: 'Birds',
-  KeyConditionExpression: '#Location = :Location AND #Bird_id > :Bird_id',
+  KeyConditionExpression: '#Location = :Location AND #Bird_id = :Bird_id',
 
   ExpressionAttributeNames: {
     '#Location': 'Location',

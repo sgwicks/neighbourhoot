@@ -1,21 +1,6 @@
 const JasminsBirds = [
   {
     Location: 'Sleights',
-    Bird_id: 88,
-    Bird_name: 'House Martin',
-
-    Features: { Wingspan: 13, Head: 'Black', Back: 'Black', Chest: 'White' }
-  },
-
-  {
-    Location: 'Sleights',
-    Bird_id: 90,
-    Bird_name: 'Herron',
-
-    Features: { Wingspan: 150, Head: 'White', Back: 'White', Chest: 'Grey' }
-  },
-  {
-    Location: 'Sleights',
     Bird_id: 91,
     Bird_name: 'Blue Tit',
 

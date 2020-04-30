@@ -16,18 +16,19 @@ const JasminsBirdsMapped = JasminsBirds.map((bird) => {
 const SamsBirdsMapped = SamsBirds.map((bird) => {
   return { PutRequest: { Item: bird } };
 });
-const Birds = [...SamsBirdsMapped, ...JasminsBirdsMapped];
+const Birds = [...JasminsBirdsMapped, ...SamsBirdsMapped];
 
 const params = {
   RequestItems: {
     Birds
-  }
+  },
+  ReturnValues: 'ALL_OLD'
 };
 
 docClient.batchWrite(params, (err, data) => {
   if (err) {
     console.error('unable to add bird', JSON.stringify(err, null, 2));
   } else {
-    console.log('added bird:', JSON.stringify(data, null, 2));
+    console.log('added bird:', JSON.stringify(data.UnprocessedItems, null, 2));
   }
 });

@@ -15,7 +15,7 @@ const params = {
   ],
   AttributeDefinitions: [
     { AttributeName: 'location', AttributeType: 'S' },
-    { AttributeName: 'bird_id', AttributeType: 'N' }
+    { AttributeName: 'bird_id', AttributeType: 'S' }
   ],
   ProvisionedThroughput: { ReadCapacityUnits: 10, WriteCapacityUnits: 10 }
 };

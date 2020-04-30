@@ -9,18 +9,18 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 const table = 'Birds';
 
-const Location = 'North Leeds';
+const location = 'North Leeds';
 
-const Bird_id = 555;
+const bird_id = 555;
 
-const Bird_name = 'John';
+const bird_name = 'John';
 
 const params = {
   TableName: table,
   Item: {
-    Location,
-    Bird_id,
-    Bird_name
+    location,
+    bird_id,
+    bird_name
   },
   ReturnValues: 'ALL_OLD'
 };

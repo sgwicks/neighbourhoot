@@ -16,11 +16,11 @@ const JasminsBirdsMapped = JasminsBirds.map((bird) => {
 const SamsBirdsMapped = SamsBirds.map((bird) => {
   return { PutRequest: { Item: bird } };
 });
-const Birds = [...JasminsBirdsMapped, ...SamsBirdsMapped];
+const birds = [...JasminsBirdsMapped, ...SamsBirdsMapped];
 
 const params = {
   RequestItems: {
-    Birds
+    birds
   },
   ReturnValues: 'ALL_OLD'
 };

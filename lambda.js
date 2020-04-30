@@ -7,7 +7,7 @@ exports.fetchBirdsByFeatures = (features) => {
   return birds.filter((bird) => {
     let isMatch = true;
     for (key in features) {
-      if (bird.Features[key] !== features[key]) {
+      if (bird.features[key] !== features[key]) {
         isMatch = false;
       }
     }

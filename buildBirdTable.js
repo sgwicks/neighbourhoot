@@ -10,12 +10,12 @@ const dynamodb = new AWS.DynamoDB();
 const params = {
   TableName: 'Birds',
   KeySchema: [
-    { AttributeName: 'Location', KeyType: 'HASH' },
-    { AttributeName: 'Bird_id', KeyType: 'RANGE' }
+    { AttributeName: 'location', KeyType: 'HASH' },
+    { AttributeName: 'bird_id', KeyType: 'RANGE' }
   ],
   AttributeDefinitions: [
-    { AttributeName: 'Location', AttributeType: 'S' },
-    { AttributeName: 'Bird_id', AttributeType: 'N' }
+    { AttributeName: 'location', AttributeType: 'S' },
+    { AttributeName: 'bird_id', AttributeType: 'N' }
   ],
   ProvisionedThroughput: { ReadCapacityUnits: 10, WriteCapacityUnits: 10 }
 };

@@ -1,80 +1,116 @@
 const SamsBirds = [
   {
-    Location: 'North Leeds',
-    Bird_id: 1,
-    Bird_name: 'House Martin',
-    Features: { Wingspan: 28, Head: 'Black', Back: 'Black', Chest: 'White' }
+    location: 'North Leeds',
+    bird_id: 1,
+    bird_name: 'House Martin',
+    features: { wingspan: 28, head: 'Black', back: 'Black', chest: 'White' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 2,
-    Bird_name: 'House Sparrow (Male)',
-    Features: { Wingspan: 23, Head: 'Grey', Back: 'Brown', Chest: 'Cream' }
+    location: 'North Leeds',
+    bird_id: 2,
+    bird_name: 'House Sparrow (Male)',
+    features: { wingspan: 23, head: 'Grey', back: 'Brown', chest: 'Cream' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 3,
-    Bird_name: 'House Sparrow (Female)',
-    Features: { Wingspan: 23, Head: 'Brown', Back: 'Brown', Chest: 'Cream' }
+    location: 'North Leeds',
+    bird_id: 3,
+    bird_name: 'House Sparrow (Female)',
+    features: { wingspan: 23, head: 'Brown', back: 'Brown', chest: 'Cream' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 4,
-    Bird_name: 'Carrion Crow',
-    Features: { Wingspan: 100, Head: 'Black', Back: 'Black', Chest: 'Black' }
+    location: 'North Leeds',
+    bird_id: 4,
+    bird_name: 'Carrion Crow',
+    features: { wingspan: 100, head: 'Black', back: 'Black', chest: 'Black' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 5,
-    Bird_name: 'Magpie',
-    Features: { Wingspan: 55, Head: 'Black', Back: 'Black', Chest: 'White' }
+    location: 'North Leeds',
+    bird_id: 5,
+    bird_name: 'Magpie',
+    features: { wingspan: 55, head: 'Black', back: 'Black', chest: 'White' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 6,
-    Bird_name: 'Jackdaw',
-    Features: { Wingspan: 70, Head: 'Grey', Back: 'Black', Chest: 'Grey' }
+    location: 'North Leeds',
+    bird_id: 6,
+    bird_name: 'Jackdaw',
+    features: { wingspan: 70, head: 'Grey', back: 'Black', chest: 'Grey' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 7,
-    Bird_name: 'Robin',
-    Features: { Wingspan: 21, Head: 'Brown', Back: 'Brown', Chest: 'Red' }
+    location: 'North Leeds',
+    bird_id: 7,
+    bird_name: 'Robin',
+    features: { wingspan: 21, head: 'Brown', back: 'Brown', chest: 'Red' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 8,
-    Bird_name: 'Red Kite',
-    Features: {
-      Wingspan: 180,
-      Head: 'White',
-      Back: 'Orange',
-      Chest: 'Orange'
-    }
+    location: 'North Leeds',
+    bird_id: 8,
+    bird_name: 'Red Kite',
+    features: {
+      wingspan: 180,
+      head: 'White',
+      back: 'Orange',
+      chest: 'Orange'
+    },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 9,
-    Bird_name: 'Kestrel',
-    Features: { Wingspan: 75, Head: 'Grey', Back: 'Orange', Chest: 'White' }
+    location: 'North Leeds',
+    bird_id: 9,
+    bird_name: 'Kestrel',
+    features: { wingspan: 75, head: 'Grey', back: 'Orange', chest: 'White' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 10,
-    Bird_name: 'Rock Dove',
-    Features: { Wingspan: 67, Head: 'Grey', Back: 'Grey', Chest: 'Grey' }
+    location: 'North Leeds',
+    bird_id: 10,
+    bird_name: 'Rock Dove',
+    features: { wingspan: 67, head: 'Grey', back: 'Grey', chest: 'Grey' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 11,
-    Bird_name: 'Blue Tit',
-    Features: { Wingspan: 18, Head: 'Blue', Back: 'Blue', Chest: 'Yellow' }
+    location: 'North Leeds',
+    bird_id: 11,
+    bird_name: 'Blue Tit',
+    features: { wingspan: 18, head: 'Blue', back: 'Blue', chest: 'Yellow' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   },
   {
-    Location: 'North Leeds',
-    Bird_id: 12,
-    Bird_name: 'Blue Tit (juvenile)',
-    Features: { Wingspan: 18, Head: 'Green', Back: 'Green', Chest: 'Yellow' }
+    location: 'North Leeds',
+    bird_id: 12,
+    bird_name: 'Blue Tit (juvenile)',
+    features: { wingspan: 18, head: 'Green', back: 'Green', chest: 'Yellow' },
+    user_id: 1,
+    img_url:
+      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
   }
 ];
 

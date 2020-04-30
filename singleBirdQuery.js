@@ -9,15 +9,15 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 const params = {
   TableName: 'Birds',
-  ProjectionExpression: 'Bird_name, Features',
+  ProjectionExpression: 'bird_name, features',
 
-  FilterExpression: '#Bird_name = :Bird_name',
+  FilterExpression: '#bird_name = :bird_name',
 
   ExpressionAttributeNames: {
-    '#Bird_name': 'Bird_name'
+    '#bird_name': 'bird_name'
   },
   ExpressionAttributeValues: {
-    ':Bird_name': 'House Martin'
+    ':bird_name': 'House Martin'
   }
 };
 

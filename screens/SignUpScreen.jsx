@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Amplify, { Auth } from "aws-amplify";
+
 // import FormErrors from "../components/FormErrors";
 
 const SignUpScreen = ({ navigation }) => {
@@ -19,9 +20,8 @@ const SignUpScreen = ({ navigation }) => {
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const [submitted, setSubmitted] = useState(false);
-  const [check, passwordCheck] = useState(true);
+  const [check, setCheck] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
@@ -40,30 +40,6 @@ const SignUpScreen = ({ navigation }) => {
     showMode("date");
   };
 
-  // const [userData, setUserState] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   dateOfBirth: new Date(),
-  //   password: "",
-  //   confirmPassword: "",
-  //   errors: {
-  //     cognito: null,
-  //     blankfield: false,
-  //     passwordmatch: false
-  //   }
-  // });
-
-  // const clearErrorState = () => {
-  //   setUserState({
-  //     errors: {
-  //       cognito: null,
-  //       blankfield: false,
-  //       passwordmatch: false
-  //     }
-  //   });
-  // };
-
   const handleSubmit = async event => {
     event.preventDefault();
     const userData = {
@@ -75,32 +51,36 @@ const SignUpScreen = ({ navigation }) => {
       confirmPassword
     };
 
-    console.log(userData);
-
-    //Form Validation
-    // clearErrorState();
-    // const error = Validate(event, userData);
-    // if (error) {
-    //   setUserState({
-    //     errors: { ...userData.errors, ...error }
-    //   });
-    // }
+    const navigator = () => {
+      navigate("Welcome");
+    };
 
     //AWS Cognito integration here
 
     try {
-      const signUpResponse = await Auth.signUp({
-        username: email,
-        firstName,
-        lastName,
-        dateOfBirth,
-        password,
-        confirmPassword,
-        attributes: {
-          email
-        }
-      });
-      console.log(signUpResponse);
+      if (
+        email !== "" &&
+        firstName !== "" &&
+        lastName !== "" &&
+        dateOfBirth !== "" &&
+        password !== ""
+      ) {
+        const signUpResponse = await Auth.signUp({
+          username: email,
+          firstName,
+          lastName,
+          dateOfBirth,
+          password,
+          confirmPassword,
+          attributes: {
+            email
+          }
+        });
+
+        navigator();
+      } else {
+        setErrorMsg("All fields must be filled");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -137,33 +117,30 @@ const SignUpScreen = ({ navigation }) => {
           onChange={onChange}
         />
       )}
-      <Text>
-        {check ? "Enter Password" : "Enter Password - Passwords do not match"}
-      </Text>
+      <Text>Enter Password</Text>
       <TextInput
-        style={check ? styles.defaultPasswords : styles.unmatchedPasswords}
+        style={styles.defaultPasswords}
         onChangeText={text => setPassword(text)}
         secureTextEntry={true}
         keyboardType="default"
       />
-      <Text>
-        {check
-          ? "Confirm Password"
-          : "Confirm Password - Passwords do not match"}
-      </Text>
+      <Text>Confirm Password</Text>
       <TextInput
-        style={check ? styles.defaultPasswords : styles.unmatchedPasswords}
+        style={styles.defaultPasswords}
         onChangeText={text => setConfirmPassword(text)}
         secureTextEntry={true}
         keyboardType="default"
       />
-      <TouchableOpacity style={styles.buttonContainer}>
-        <Button
+      <View>
+        <Text style={styles.errorMsg}>{errorMsg}</Text>
+      </View>
+      <TouchableOpacity style={styles.buttonContainer} onPress={handleSubmit}>
+        <Text>Sign up</Text>
+        {/* <Button
           style={styles.buttonText}
           title="Sign up"
           onPress={handleSubmit}
-        />
-        {/* {submitted && navigate("Login")} */}
+        /> */}
       </TouchableOpacity>
     </View>
   );
@@ -198,6 +175,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: "gray",
     borderWidth: 1
+  },
+  errorMsg: {
+    color: "red"
   }
 });
 

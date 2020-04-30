@@ -6,10 +6,11 @@ import SignUpScreen from "./screens/SignUpScreen";
 import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 import MainScreen from "./screens/MainScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
-  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
+  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`
 });
 
 const Stack = createStackNavigator();
@@ -21,7 +22,7 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: "Welcome" }}
+          options={{ title: "Home" }}
         />
         <Stack.Screen
           name="Login"
@@ -32,6 +33,11 @@ export default function App() {
           name="SignUp"
           component={SignUpScreen}
           options={{ title: "Sign Up" }}
+        />
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{ title: "Welcome" }}
         />
         <Stack.Screen
           name="Main"
@@ -48,16 +54,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF",
+    backgroundColor: "#F5FCFF"
   },
   welcome: {
     fontSize: 20,
     textAlign: "center",
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: "center",
     color: "#333333",
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });

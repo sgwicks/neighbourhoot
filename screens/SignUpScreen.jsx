@@ -8,6 +8,8 @@ import {
   Button
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import Amplify, { Auth } from "aws-amplify";
+// import FormErrors from "../components/FormErrors";
 
 const SignUpScreen = ({ navigation }) => {
   const { navigate } = navigation;
@@ -17,33 +19,16 @@ const SignUpScreen = ({ navigation }) => {
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const [submitted, setSubmitted] = useState(false);
   const [check, passwordCheck] = useState(true);
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
-  const submit = () => {
-    const changedDate = dateOfBirth.toUTCString();
-    if (password !== confirmPassword) {
-      return passwordCheck(false);
-    } else {
-      const userSignUp = {
-        firstName,
-        lastName,
-        email,
-        password,
-        dateOfBirth: changedDate,
-        confirmPassword
-      };
-      setSubmitted(true);
-      console.log(userSignUp);
-    }
-  };
-
   const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || dateOfBirth;
+    const currentDate = selectedDate || userData.dateOfBirth;
     setShow(Platform.OS === "ios");
-    setDateOfBirth(currentDate);
+    setUserState({ dateOfBirth: currentDate });
   };
 
   const showMode = currentMode => {
@@ -55,26 +40,90 @@ const SignUpScreen = ({ navigation }) => {
     showMode("date");
   };
 
+  // const [userData, setUserState] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   dateOfBirth: new Date(),
+  //   password: "",
+  //   confirmPassword: "",
+  //   errors: {
+  //     cognito: null,
+  //     blankfield: false,
+  //     passwordmatch: false
+  //   }
+  // });
+
+  // const clearErrorState = () => {
+  //   setUserState({
+  //     errors: {
+  //       cognito: null,
+  //       blankfield: false,
+  //       passwordmatch: false
+  //     }
+  //   });
+  // };
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+    const userData = {
+      firstName,
+      lastName,
+      email,
+      dateOfBirth,
+      password,
+      confirmPassword
+    };
+
+    console.log(userData);
+
+    //Form Validation
+    // clearErrorState();
+    // const error = Validate(event, userData);
+    // if (error) {
+    //   setUserState({
+    //     errors: { ...userData.errors, ...error }
+    //   });
+    // }
+
+    //AWS Cognito integration here
+
+    try {
+      const signUpResponse = await Auth.signUp({
+        username: email,
+        firstName,
+        lastName,
+        dateOfBirth,
+        password,
+        confirmPassword,
+        attributes: {
+          email
+        }
+      });
+      console.log(signUpResponse);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View>
       <Text>This is the Sign Up Screen</Text>
+      {/* <FormErrors formErrors={userData.errors} /> */}
       <Text>Enter your first name</Text>
       <TextInput
         style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
         onChangeText={text => setFirstName(text)}
-        value={firstName}
       />
       <Text>Enter your surname</Text>
       <TextInput
         style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
         onChangeText={text => setLastName(text)}
-        value={lastName}
       />
       <Text>Enter your email address</Text>
       <TextInput
         style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
         onChangeText={text => setEmail(text)}
-        value={email}
         keyboardType="email-address"
         autoCapitalize="none"
       />
@@ -83,7 +132,6 @@ const SignUpScreen = ({ navigation }) => {
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
-          value={dateOfBirth}
           mode={mode}
           display="spinner"
           onChange={onChange}
@@ -95,7 +143,6 @@ const SignUpScreen = ({ navigation }) => {
       <TextInput
         style={check ? styles.defaultPasswords : styles.unmatchedPasswords}
         onChangeText={text => setPassword(text)}
-        value={password}
         secureTextEntry={true}
         keyboardType="default"
       />
@@ -107,13 +154,16 @@ const SignUpScreen = ({ navigation }) => {
       <TextInput
         style={check ? styles.defaultPasswords : styles.unmatchedPasswords}
         onChangeText={text => setConfirmPassword(text)}
-        value={confirmPassword}
         secureTextEntry={true}
         keyboardType="default"
       />
       <TouchableOpacity style={styles.buttonContainer}>
-        <Button style={styles.buttonText} title="Sign up" onPress={submit} />
-        {submitted && navigate("Login")}
+        <Button
+          style={styles.buttonText}
+          title="Sign up"
+          onPress={handleSubmit}
+        />
+        {/* {submitted && navigate("Login")} */}
       </TouchableOpacity>
     </View>
   );

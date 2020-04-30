@@ -1,5 +1,5 @@
-const JasminsBirds = require('./JasminsBirds');
-const SamsBirds = require('./SamsBirds');
+const JasminsBirds = require('./data/JasminsBirds');
+const SamsBirds = require('./data/SamsBirds');
 
 const AWS = require('aws-sdk');
 

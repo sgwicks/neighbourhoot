@@ -14,56 +14,48 @@ const instructions = Platform.select({
   android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`
 });
 
-const Stack = createStackNavigator();
-const modalStack = createStackNavigator();
-
-const ModalScreen = ({ navigation }) => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <BirdOverlay />
-    </View>
-  );
-};
+const RootStack = createStackNavigator();
+const MainStack = createStackNavigator();
 
 const MainView = () => {
   return (
-    <modalStack.Navigator headerMode='none'>
-      <modalStack.Screen name='newMain' component={MainScreen} />
-      <modalStack.Screen name='MyModal' component={BirdOverlay} />
-    </modalStack.Navigator>
+    <MainStack.Navigator headerMode='none'>
+      <MainStack.Screen name='newMain' component={MainScreen} />
+      <MainStack.Screen name='MyModal' component={BirdOverlay} />
+    </MainStack.Navigator>
   );
 };
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <RootStack.Navigator>
+        <RootStack.Screen
           name='Main'
           component={MainView}
           options={{ title: 'Main' }}
         />
-        <Stack.Screen
+        <RootStack.Screen
           name='Home'
           component={HomeScreen}
           options={{ title: 'Home' }}
         />
-        <Stack.Screen
+        <RootStack.Screen
           name='Login'
           component={LoginScreen}
           options={{ title: 'Login' }}
         />
-        <Stack.Screen
+        <RootStack.Screen
           name='SignUp'
           component={SignUpScreen}
           options={{ title: 'Sign Up' }}
         />
-        <Stack.Screen
+        <RootStack.Screen
           name='Welcome'
           component={WelcomeScreen}
           options={{ title: 'Welcome' }}
         />
-      </Stack.Navigator>
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 }

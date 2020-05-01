@@ -1,8 +1,8 @@
 import Overlay from 'react-native-modal-overlay';
 import React, { Component, Fragment, useState } from 'react';
-import { Text } from 'react-native';
+import { Text, Image } from 'react-native';
 
-const BirdOverlay = ({ navigation }) => {
+const BirdOverlay = ({ route, navigation }) => {
   const [isVisible, updateIsVisible] = useState(true);
 
   const onClose = () => {
@@ -10,9 +10,12 @@ const BirdOverlay = ({ navigation }) => {
     navigation.goBack();
   };
 
+  const { bird_name, img_url } = route.params;
+
   return (
     <Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
-      <Text>Lorem ipsum dolor etc.</Text>
+      <Image style={{ width: 100, height: 100 }} source={{ uri: img_url }} />
+      <Text>{bird_name}</Text>
     </Overlay>
   );
 };

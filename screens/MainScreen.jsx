@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import { getAllBirdsByArea } from '../apiRequest/apiRequests';
 import ImagePicker from '../components/ImagePicker';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const MainScreen = ({ navigation }) => {
   const [images, updateImages] = useState([]);
@@ -45,23 +46,17 @@ const MainScreen = ({ navigation }) => {
   return (
     <View>
       <Text>This is the main Screen</Text>
-      {/* {images.map((bird, i) => {
+      {images.map((bird, i) => {
         return (
-          <Image
-            style={styles.birds}
-            key={i}
-            source={{ uri: bird.img_url }}
+          <TouchableWithoutFeedback
             onPress={() => {
-              updateIsVisible(true);
+              navigation.navigate('MyModal', { ...bird });
             }}
-          />
+            key={i}>
+            <Image style={styles.birds} source={{ uri: bird.img_url }} />
+          </TouchableWithoutFeedback>
         );
-      })} */}
-      <Button
-        onPress={() => {
-          navigation.navigate('MyModal');
-        }}
-        title='Press for Modal'></Button>
+      })}
       <ImagePicker onImageTaken={imageTakenHandler} />
     </View>
   );
@@ -70,9 +65,8 @@ const MainScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   birds: {
     width: 100,
-    height: 100,
+    height: 100
     // resizeMode: "contain",
-    flex: 1
   }
 });
 

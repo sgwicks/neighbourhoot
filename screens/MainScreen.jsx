@@ -19,6 +19,10 @@ const MainScreen = (props) => {
 			});
 	}, [location]);
 
+	// useEffect to ask permission for user location (method in react native)
+	// returns a object with longitude and latitude
+	// use longitude/latitude to do stuff using Google Maps API probably
+
 	if (isLoading)
 		return (
 			<View>
@@ -28,9 +32,11 @@ const MainScreen = (props) => {
 	return (
 		<View>
 			<Text>This is the main Screen</Text>
-			{console.log(images, "<---inside the return")}
+
 			{images.map((bird, i) => {
-				return <Image style={styles.birds} key={i} source={bird.img_url} />;
+				return (
+					<Image style={styles.birds} key={i} source={{ uri: bird.img_url }} />
+				);
 			})}
 		</View>
 	);

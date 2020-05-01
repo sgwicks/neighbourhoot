@@ -10,8 +10,6 @@ import {
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Amplify, { Auth } from "aws-amplify";
 
-// import FormErrors from "../components/FormErrors";
-
 const SignUpScreen = ({ navigation }) => {
 	const { navigate } = navigation;
 	const [firstName, setFirstName] = useState("");
@@ -89,6 +87,7 @@ const SignUpScreen = ({ navigation }) => {
 			setErrorMsg(error);
 		}
 	};
+
 
 	return (
 		<View>

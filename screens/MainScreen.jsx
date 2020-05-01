@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect, Fragment } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { getAllBirdsByArea } from "../apiRequest/apiRequests";
 import Overlay from "react-native-modal-overlay";
+import ImagePicker from "../components/ImagePicker";
 
 const MainScreen = (props) => {
 	const [images, updateImages] = useState([]);
@@ -12,6 +14,14 @@ const MainScreen = (props) => {
 	const onClose = () => {
 		updateIsVisible(false);
 	};
+    
+    const imageTakenHandler = imagePath => {
+    setImages({ img: imagePath });
+  };
+    
+    // useEffect(() => {
+  //   imageTakenHandler(imagePath);
+  // }, [imagePath]);
 
 	const getAreaBirdsUrl = `https://rmx5oedl1b.execute-api.eu-west-2.amazonaws.com/development/birds/${location}`;
 
@@ -50,9 +60,12 @@ const MainScreen = (props) => {
 					/>
 				);
 			})}
+      
 			<Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
+        
 				<Text>Lorem ipsum dolor etc.</Text>
 			</Overlay>
+      <ImagePicker onImageTaken={imageTakenHandler} />
 		</View>
 	);
 };
@@ -64,6 +77,7 @@ const styles = StyleSheet.create({
 		// resizeMode: "contain",
 		flex: 1,
 	},
+
 });
 
 export default MainScreen;

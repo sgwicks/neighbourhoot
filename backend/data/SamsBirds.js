@@ -6,7 +6,7 @@ const SamsBirds = [
     features: { wingspan: 28, head: 'Black', back: 'Black', chest: 'White' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -15,7 +15,7 @@ const SamsBirds = [
     features: { wingspan: 23, head: 'Grey', back: 'Brown', chest: 'Cream' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -24,7 +24,7 @@ const SamsBirds = [
     features: { wingspan: 23, head: 'Brown', back: 'Brown', chest: 'Cream' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -33,7 +33,7 @@ const SamsBirds = [
     features: { wingspan: 100, head: 'Black', back: 'Black', chest: 'Black' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -42,7 +42,7 @@ const SamsBirds = [
     features: { wingspan: 55, head: 'Black', back: 'Black', chest: 'White' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -51,7 +51,7 @@ const SamsBirds = [
     features: { wingspan: 70, head: 'Grey', back: 'Black', chest: 'Grey' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -60,7 +60,7 @@ const SamsBirds = [
     features: { wingspan: 21, head: 'Brown', back: 'Brown', chest: 'Red' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -74,7 +74,7 @@ const SamsBirds = [
     },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -83,7 +83,7 @@ const SamsBirds = [
     features: { wingspan: 75, head: 'Grey', back: 'Orange', chest: 'White' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -92,7 +92,7 @@ const SamsBirds = [
     features: { wingspan: 67, head: 'Grey', back: 'Grey', chest: 'Grey' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -101,7 +101,7 @@ const SamsBirds = [
     features: { wingspan: 18, head: 'Blue', back: 'Blue', chest: 'Yellow' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'North Leeds',
@@ -110,7 +110,7 @@ const SamsBirds = [
     features: { wingspan: 18, head: 'Green', back: 'Green', chest: 'Yellow' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   }
 ];
 

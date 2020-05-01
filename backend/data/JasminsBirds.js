@@ -7,7 +7,7 @@ const JasminsBirds = [
     features: { wingspan: 11, head: 'Blue', back: 'Blue', chest: 'Yellow' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -17,7 +17,7 @@ const JasminsBirds = [
     features: { wingspan: 17, head: 'Brown', back: 'Brown', chest: 'Brown' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -27,7 +27,7 @@ const JasminsBirds = [
     features: { wingspan: 20, head: 'Brown', back: 'Brown', chest: 'Brown' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -37,7 +37,7 @@ const JasminsBirds = [
     features: { wingspan: 45, head: 'Black', back: 'Black', chest: 'White' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -47,7 +47,7 @@ const JasminsBirds = [
     features: { wingspan: 56, head: 'White', back: 'White', chest: 'White' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -62,7 +62,7 @@ const JasminsBirds = [
     },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -72,7 +72,7 @@ const JasminsBirds = [
     features: { wingspan: 81, head: 'Brown', back: 'Brown', chest: 'Brown' },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -87,7 +87,7 @@ const JasminsBirds = [
     },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -102,7 +102,7 @@ const JasminsBirds = [
     },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -117,7 +117,7 @@ const JasminsBirds = [
     },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   },
   {
     location: 'Sleights',
@@ -132,7 +132,7 @@ const JasminsBirds = [
     },
     user_id: 1,
     img_url:
-      'https://thegraphicsfairy.com/wp-content/uploads/blogger/-_9Gnj4ucWGg/TkFeIpJgikI/AAAAAAAANrk/UVymbYk9WTE/s1600/swallow+silhouette+vintage+printable+graphicsfairysm.jpg'
+      'https://nppicturestorage.s3.eu-west-2.amazonaws.com/aCcndxYxTKmLj5bR4h7moP.jpeg'
   }
 ];
 

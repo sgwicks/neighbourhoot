@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { getAllBirdsByArea } from "../apiRequest/apiRequests";
+import Overlay from "react-native-modal-overlay";
 
 const MainScreen = (props) => {
 	const [images, updateImages] = useState([]);
 	const [location, updateLocation] = useState("Sleights");
 	const [isLoading, updateIsLoading] = useState(true);
+	const [isVisible, updateIsVisible] = useState(false);
+
+	const onClose = () => {
+		updateIsVisible(false);
+	};
 
 	const getAreaBirdsUrl = `https://rmx5oedl1b.execute-api.eu-west-2.amazonaws.com/development/birds/${location}`;
 
@@ -32,12 +38,21 @@ const MainScreen = (props) => {
 	return (
 		<View>
 			<Text>This is the main Screen</Text>
-
 			{images.map((bird, i) => {
 				return (
-					<Image style={styles.birds} key={i} source={{ uri: bird.img_url }} />
+					<Image
+						style={styles.birds}
+						key={i}
+						source={{ uri: bird.img_url }}
+						onPress={() => {
+							updateIsVisible(true);
+						}}
+					/>
 				);
 			})}
+			<Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
+				<Text>Lorem ipsum dolor etc.</Text>
+			</Overlay>
 		</View>
 	);
 };

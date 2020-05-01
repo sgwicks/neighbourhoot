@@ -3,6 +3,8 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "kw-xpf",
+
+  "urlRandomness": "ze-nad",
+
   "https": true
 }

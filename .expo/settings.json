@@ -3,6 +3,8 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "kj-r26",
+
+  "urlRandomness": "ze-nad",
+
   "https": true
 }

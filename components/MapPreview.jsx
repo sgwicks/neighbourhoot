@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
-import key from "../apiKey/apiKey";
+// import key from "../apiKey/apiKey";
 
-const MapPreview = props => {
+const MapPreview = (props) => {
   let imagePreviewUrl;
 
   if (props.location) {
@@ -23,12 +23,12 @@ const MapPreview = props => {
 const styles = StyleSheet.create({
   mapPreview: {
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   mapImage: {
     width: "100%",
-    height: "100%"
-  }
+    height: "100%",
+  },
 });
 
 export default MapPreview;

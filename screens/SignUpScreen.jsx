@@ -76,7 +76,7 @@ const SignUpScreen = ({ navigation }) => {
         setErrorMsg("All fields must be filled");
       }
     } catch (error) {
-      setErrorMsg(error);
+      setErrorMsg(error.message);
     }
   };
 
@@ -104,15 +104,26 @@ const SignUpScreen = ({ navigation }) => {
           autoCapitalize="none"
         />
         <Text>Enter your date of birth</Text>
-        <TextInput value={dateOfBirth.toLocaleDateString()}></TextInput>
-        <Button onPress={showDatePicker} title="Show date picker!" />
+        <TextInput
+          style={styles.textInput}
+          value={dateOfBirth.toLocaleDateString()}
+        ></TextInput>
+        <TouchableOpacity
+          onPress={showDatePicker}
+          title="Select date of birth"
+          style={styles.datePicker}
+        >
+          <Text>Select date of birth</Text>
+        </TouchableOpacity>
         {show && (
           <DateTimePicker
+            // style={{ textColor: "red" }}
             testID="dateTimePicker"
             mode="date"
             display="spinner"
             value={dateOfBirth}
             onChange={onChange}
+            textColor="red"
           />
         )}
         <Text>Enter Password</Text>
@@ -169,24 +180,27 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderColor: "black",
+    color: "white",
     borderWidth: 1.5,
-    height: 40,
-    padding: 20,
     marginBottom: 10,
     borderRadius: 50,
     width: 200,
-  },
-  unmatchedPasswords: {
-    backgroundColor: "red",
-  },
-  defaultPasswords: {
-    height: 40,
-    borderColor: "black",
-    borderWidth: 1.5,
-    marginBottom: 10,
+    textAlign: "center",
+    fontSize: 15,
+    padding: 10,
+    backgroundColor: "#42A131",
   },
   errorMsg: {
     color: "red",
+  },
+  datePicker: {
+    borderRadius: 5,
+    padding: 10,
+    width: 150,
+    backgroundColor: "#49B036",
+    marginBottom: 10,
+    borderColor: "black",
+    borderWidth: 1,
   },
 });
 

@@ -7,6 +7,8 @@ import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 import MainScreen from "./screens/MainScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
+import MapScreen from "./screens/MapScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
@@ -20,15 +22,21 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Main"
+          component={MainScreen}
+          options={{ title: "Main" }}
+        />
+        <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: "Home" }}
         />
         <Stack.Screen
-          name="Main"
-          component={MainScreen}
-          options={{ title: "Main" }}
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{ title: "Welcome" }}
         />
+
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -40,9 +48,14 @@ export default function App() {
           options={{ title: "Sign Up" }}
         />
         <Stack.Screen
-          name="Welcome"
-          component={WelcomeScreen}
-          options={{ title: "Welcome" }}
+          name="Map"
+          component={MapScreen}
+          options={{ title: "Map" }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{ title: "Profile" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

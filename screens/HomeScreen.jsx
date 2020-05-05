@@ -37,12 +37,13 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     textAlign: "center",
     fontFamily: "Roboto",
+    marginBottom: 20,
   },
   buttonContainer: {
     backgroundColor: "#6D3716",
     borderRadius: 5,
     padding: 10,
-    margin: 20,
+    margin: 10,
     width: 100,
   },
   buttonText: {

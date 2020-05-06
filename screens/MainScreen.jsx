@@ -29,13 +29,15 @@ const MainScreen = ({ navigation }) => {
 
   if (isLoading)
     return (
+      <View style={styles.container}>
+        <Text>Loading!</Text>
+      </View>
+    );
+  return (
+    <>
       <ScrollView>
-        <View>
-          <Text>Loading!</Text>
-        </View>
-        ); return (
-        <View>
-          <Text>Birds in your area</Text>
+        <View style={styles.container}>
+          <Text style={styles.text}>Birds in your area</Text>
           {images.map((bird, i) => {
             return (
               <TouchableWithoutFeedback
@@ -48,44 +50,45 @@ const MainScreen = ({ navigation }) => {
               </TouchableWithoutFeedback>
             );
           })}
-          <ImagePicker onImageTaken={imageTakenHandler} />
-          <MapScreen />
-        </View>
-        <View style={styles.iconContainer}>
-          <FontAwesomeIcon
-            icon={faMapMarker}
-            size={30}
-            color="#DD4B3E"
-            onPress={() => navigate("Map")}
-            style={{
-              alignSelf: "flex-start",
-              top: 10,
-              bottom: 10,
-              left: 20,
-              flex: 1,
-            }}
-          />
-
-          <FontAwesomeIcon
-            icon={faPlusCircle}
-            size={30}
-            onPress={() => navigate("Profile")}
-            style={{
-              alignSelf: "flex-end",
-              bottom: 20,
-              right: 20,
-              flex: 1,
-            }}
-          />
         </View>
       </ScrollView>
-    );
+
+      <View style={styles.iconContainer}>
+        <FontAwesomeIcon
+          icon={faMapMarker}
+          size={30}
+          color="#DD4B3E"
+          onPress={() => navigate("Map")}
+          style={{
+            alignSelf: "flex-start",
+            top: 10,
+            bottom: 10,
+            left: 20,
+            flex: 1,
+          }}
+        />
+
+        <FontAwesomeIcon
+          icon={faPlusCircle}
+          size={30}
+          color="white"
+          onPress={() => navigate("Profile")}
+          style={{
+            alignSelf: "flex-end",
+            bottom: 20,
+            right: 20,
+            flex: 1,
+          }}
+        />
+      </View>
+    </>
+  );
 };
 const styles = StyleSheet.create({
   birds: {
     height: 150,
     display: "flex",
-    width: "35%",
+    width: 150,
     margin: 10,
     padding: 10,
   },
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     flexWrap: "wrap",
-    alignItems: "flex-start",
+    alignItems: "space-around",
     backgroundColor: "#2D9676",
     justifyContent: "center",
     alignItems: "center",

@@ -1,11 +1,17 @@
 {
+  "name": "team-project",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "build-table": "node db/seed/buildBirdTable.js",
+    "delete-table": "node db/seed/removeBirdTable.js",
+    "seed-table": "node db/seed/batchSeedBirds.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -21,6 +27,7 @@
     "aws-sdk": "^2.667.0",
     "axios": "^0.19.2",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "expo": "^37.0.8",
     "expo-image-picker": "^8.1.0",
     "expo-location": "^8.1.0",
@@ -52,5 +59,16 @@
   "jest": {
     "preset": "react-native"
   },
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakedheath123/team-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakedheath123/team-project/issues"
+  },
+  "homepage": "https://github.com/jakedheath123/team-project#readme"
 }

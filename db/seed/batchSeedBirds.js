@@ -1,5 +1,5 @@
-const JasminsBirds = require('./data/JasminsBirds');
-const SamsBirds = require('./data/SamsBirds');
+const devBirds = require('../../data/devBirds');
+const { generateUUID } = require('../../utils/utils');
 
 const AWS = require('aws-sdk');
 
@@ -10,19 +10,15 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const JasminsBirdsMapped = JasminsBirds.map((bird) => {
-  return { PutRequest: { Item: bird } };
+const Birds = devBirds.map((bird) => {
+  const newBird = { ...bird, bird_id: generateUUID() };
+  return { PutRequest: { Item: newBird } };
 });
-const SamsBirdsMapped = SamsBirds.map((bird) => {
-  return { PutRequest: { Item: bird } };
-});
-const Birds = [...JasminsBirdsMapped, ...SamsBirdsMapped];
 
 const params = {
   RequestItems: {
-    Birds
-  },
-  ReturnValues: 'ALL_OLD'
+    devBirds: Birds
+  }
 };
 
 docClient.batchWrite(params, (err, data) => {

@@ -8,13 +8,13 @@ AWS.config.update({
 const dynamodb = new AWS.DynamoDB();
 
 const params = {
-  TableName: 'Birds',
+  TableName: 'devBirds',
   KeySchema: [
-    { AttributeName: 'location', KeyType: 'HASH' },
+    { AttributeName: 'bird_name', KeyType: 'HASH' },
     { AttributeName: 'bird_id', KeyType: 'RANGE' }
   ],
   AttributeDefinitions: [
-    { AttributeName: 'location', AttributeType: 'S' },
+    { AttributeName: 'bird_name', AttributeType: 'S' },
     { AttributeName: 'bird_id', AttributeType: 'S' }
   ],
   ProvisionedThroughput: { ReadCapacityUnits: 10, WriteCapacityUnits: 10 }

@@ -13,7 +13,7 @@ const BirdOverlay = ({ route, navigation }) => {
 
   const { bird_name, img_url, features } = route.params;
 
-  const featureList = features => {
+  const featureList = (features) => {
     const list = [];
     for (const key in features) {
       list.push(

@@ -7,13 +7,10 @@ import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 import MainScreen from "./screens/MainScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
-
 import BirdOverlay from "./components/BirdOverlay";
 import MapScreen from "./screens/MapScreen";
 import NewPlaceScreen from "./screens/NewPlaceScreen";
-
 import ProfileScreen from "./screens/ProfileScreen";
-
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
@@ -36,11 +33,16 @@ export default function App() {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
-        <RootStack.Screen name="Map" component={MapScreen} />
-        
-
-       
-        
+        <RootStack.Screen
+          name="Main"
+          component={MainView}
+          options={{ title: "Main" }}
+        />
+        <RootStack.Screen
+          name="Map"
+          component={MapScreen}
+          options={{ title: "Map" }}
+        />
         <RootStack.Screen
           name="NewPlace"
           component={NewPlaceScreen}
@@ -48,18 +50,11 @@ export default function App() {
         />
 
         <RootStack.Screen
-
-          name="Main"
-          component={MainView}
-          options={{ title: "Main" }}
-        />
-        <RootStack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: "Home" }}
         />
         <RootStack.Screen
-
           name="Login"
           component={LoginScreen}
           options={{ title: "Login" }}
@@ -73,18 +68,12 @@ export default function App() {
           name="Welcome"
           component={WelcomeScreen}
           options={{ title: "Welcome" }}
+        />
 
-        />
-        <RootStack.Screen
-          name="Map"
-          component={MapScreen}
-          options={{ title: "Map" }}
-        />
         <RootStack.Screen
           name="Profile"
           component={ProfileScreen}
           options={{ title: "Profile" }}
-
         />
       </RootStack.Navigator>
     </NavigationContainer>
@@ -97,21 +86,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    backgroundColor: "#F5FCFF"
-
+    backgroundColor: "#F5FCFF",
   },
   welcome: {
     fontSize: 20,
     textAlign: "center",
 
-    margin: 10
-
+    margin: 10,
   },
   instructions: {
     textAlign: "center",
     color: "#333333",
 
-    marginBottom: 5
+    marginBottom: 5,
   },
-
 });

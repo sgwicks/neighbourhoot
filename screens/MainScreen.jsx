@@ -3,23 +3,25 @@ import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { getAllBirdsByArea } from "../apiRequest/apiRequests";
 import ImagePicker from "../components/ImagePicker";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMapMarker, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+
 
 const MainScreen = ({ navigation }) => {
   const [images, updateImages] = useState([]);
   const [location, updateLocation] = useState("Sleights");
   const [isLoading, updateIsLoading] = useState(true);
 
-  const imageTakenHandler = (imagePath) => {
-    setImages({ img: imagePath });
-  };
+  // const imageTakenHandler = imagePath => {
+  //   setImages({ img: imagePath });
+  // };
 
   const getAreaBirdsUrl = `https://rmx5oedl1b.execute-api.eu-west-2.amazonaws.com/development/birds/${location}`;
 
   useEffect(() => {
     getAllBirdsByArea(getAreaBirdsUrl)
-      .then((birds) => {
+      .then(birds => {
         updateImages(birds);
       })
       .then(() => {
@@ -29,11 +31,19 @@ const MainScreen = ({ navigation }) => {
 
   if (isLoading)
     return (
-      <ScrollView>
-        <View>
-          <Text>Loading!</Text>
-        </View>
-        ); return (
+
+      <View>
+        <Text>Loading!</Text>
+      </View>
+
+        );
+  
+  
+      
+  
+         return (
+           <>
+           <ScrollView>
         <View>
           <Text>Birds in your area</Text>
           {images.map((bird, i) => {
@@ -51,6 +61,7 @@ const MainScreen = ({ navigation }) => {
           <ImagePicker onImageTaken={imageTakenHandler} />
           <MapScreen />
         </View>
+    </ScrollView>
         <View style={styles.iconContainer}>
           <FontAwesomeIcon
             icon={faMapMarker}
@@ -78,8 +89,9 @@ const MainScreen = ({ navigation }) => {
             }}
           />
         </View>
-      </ScrollView>
-    );
+      </>
+
+  
 };
 const styles = StyleSheet.create({
   birds: {

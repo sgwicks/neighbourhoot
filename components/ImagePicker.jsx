@@ -7,10 +7,10 @@ const ImgPicker = props => {
   const [pickedImage, setPickedImage] = useState();
 
   const verifyPermissions = async () => {
-    //can get location from Permissions.LOCATION
     const result = await Permissions.askAsync(
       Permissions.CAMERA,
-      Permissions.CAMERA_ROLL
+      Permissions.CAMERA_ROLL,
+      Permissions.LOCATION
     );
     if (result.status !== "granted") {
       Alert.alert(

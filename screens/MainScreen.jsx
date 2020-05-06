@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { getAllBirdsByArea } from "../apiRequest/apiRequests";
 import ImagePicker from "../components/ImagePicker";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMapMarker, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,9 +12,9 @@ const MainScreen = ({ navigation }) => {
   const [location, updateLocation] = useState("Sleights");
   const [isLoading, updateIsLoading] = useState(true);
 
-  const imageTakenHandler = (imagePath) => {
-    setImages({ img: imagePath });
-  };
+  // const imageTakenHandler = imagePath => {
+  //   setImages({ img: imagePath });
+  // };
 
   const getAreaBirdsUrl = `https://rmx5oedl1b.execute-api.eu-west-2.amazonaws.com/development/birds/${location}`;
 
@@ -29,15 +30,16 @@ const MainScreen = ({ navigation }) => {
 
   if (isLoading)
     return (
-      <View style={styles.container}>
+      <View>
         <Text>Loading!</Text>
       </View>
     );
+
   return (
     <>
       <ScrollView>
-        <View style={styles.container}>
-          <Text style={styles.text}>Birds in your area</Text>
+        <View>
+          <Text>Birds in your area</Text>
           {images.map((bird, i) => {
             return (
               <TouchableWithoutFeedback
@@ -50,9 +52,10 @@ const MainScreen = ({ navigation }) => {
               </TouchableWithoutFeedback>
             );
           })}
+          <ImagePicker onImageTaken={imageTakenHandler} />
+          <MapScreen />
         </View>
       </ScrollView>
-
       <View style={styles.iconContainer}>
         <FontAwesomeIcon
           icon={faMapMarker}
@@ -71,7 +74,6 @@ const MainScreen = ({ navigation }) => {
         <FontAwesomeIcon
           icon={faPlusCircle}
           size={30}
-          color="white"
           onPress={() => navigate("Profile")}
           style={{
             alignSelf: "flex-end",

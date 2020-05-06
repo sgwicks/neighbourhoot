@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { getAllBirdsByArea } from "../apiRequest/apiRequests";
-import Overlay from "react-native-modal-overlay";
 import ImagePicker from "../components/ImagePicker";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faCoffee,
-  faMapMarker,
-  faPlusCircle,
-} from "@fortawesome/free-solid-svg-icons";
-// import MapScreen from "./MapScreen";
+import { faMapMarker, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const MainScreen = ({ navigation }) => {
-  const { navigate } = navigation;
   const [images, updateImages] = useState([]);
   const [location, updateLocation] = useState("Sleights");
   const [isLoading, updateIsLoading] = useState(true);
-  const [isVisible, updateIsVisible] = useState(false);
 
-  const onClose = () => {
-    updateIsVisible(false);
+  const imageTakenHandler = (imagePath) => {
+    setImages({ img: imagePath });
   };
 
   const getAreaBirdsUrl = `https://rmx5oedl1b.execute-api.eu-west-2.amazonaws.com/development/birds/${location}`;
@@ -34,74 +27,60 @@ const MainScreen = ({ navigation }) => {
       });
   }, [location]);
 
-  // useEffect to ask permission for user location (method in react native)
-  // returns a object with longitude and latitude
-  // use longitude/latitude to do stuff using Google Maps API probably
-
   if (isLoading)
     return (
-      <View style={styles.container}>
-        <Text>Loading!</Text>
-      </View>
-    );
-  return (
-    <>
       <ScrollView>
-        <View style={styles.container}>
-          <Text style={styles.text}>Birds in your area</Text>
-
+        <View>
+          <Text>Loading!</Text>
+        </View>
+        ); return (
+        <View>
+          <Text>Birds in your area</Text>
           {images.map((bird, i) => {
             return (
-              <Image
-                style={styles.birds}
-                key={i}
-                source={{ uri: bird.img_url }}
+              <TouchableWithoutFeedback
                 onPress={() => {
-                  updateIsVisible(true);
+                  navigation.navigate("MyModal", { ...bird });
                 }}
-              />
+                key={i}
+              >
+                <Image style={styles.birds} source={{ uri: bird.img_url }} />
+              </TouchableWithoutFeedback>
             );
           })}
+          <ImagePicker onImageTaken={imageTakenHandler} />
+          <MapScreen />
+        </View>
+        <View style={styles.iconContainer}>
+          <FontAwesomeIcon
+            icon={faMapMarker}
+            size={30}
+            color="#DD4B3E"
+            onPress={() => navigate("Map")}
+            style={{
+              alignSelf: "flex-start",
+              top: 10,
+              bottom: 10,
+              left: 20,
+              flex: 1,
+            }}
+          />
+
+          <FontAwesomeIcon
+            icon={faPlusCircle}
+            size={30}
+            onPress={() => navigate("Profile")}
+            style={{
+              alignSelf: "flex-end",
+              bottom: 20,
+              right: 20,
+              flex: 1,
+            }}
+          />
         </View>
       </ScrollView>
-
-      <View style={styles.iconContainer}>
-        <FontAwesomeIcon
-          icon={faMapMarker}
-          size={30}
-          color="#DD4B3E"
-          onPress={() => navigate("Map")}
-          style={{
-            alignSelf: "flex-start",
-            top: 10,
-            bottom: 10,
-            left: 20,
-            flex: 1,
-          }}
-        />
-
-        <FontAwesomeIcon
-          icon={faPlusCircle}
-          size={30}
-          onPress={() => navigate("Profile")}
-          style={{
-            alignSelf: "flex-end",
-            bottom: 20,
-            right: 20,
-            flex: 1,
-          }}
-        />
-
-        {/* <Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
-          <Text>Lorem ipsum dolor etc.</Text>
-        </Overlay> */}
-        {/* <ImagePicker /> */}
-        {/* <MapScreen /> */}
-      </View>
-    </>
-  );
+    );
 };
-
 const styles = StyleSheet.create({
   birds: {
     height: 150,

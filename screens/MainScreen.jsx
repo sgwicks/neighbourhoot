@@ -23,14 +23,14 @@ import {
 } from "../components/LocationContext";
 import { getLocationHandler } from "../components/UserLocation";
 
-const MainScreen = props => {
+const MainScreen = ({ navigation }) => {
   // console.log(props);
   // const contextType = LocationContext;
   // console.log(contextType);
-  //const { navigate } = navigation;
+  const { navigate } = navigation;
   const [context, setContext] = useContext(LocationContext);
 
-  const [images, updateImages] = useState([]);
+  const [birdList, updateBirdList] = useState([]);
   // const [location, updateLocation] = useState("?lat=0&lon=0");
   const [isLoading, updateIsLoading] = useState(true);
   const [isVisible, updateIsVisible] = useState(true);
@@ -42,7 +42,7 @@ const MainScreen = props => {
   useEffect(() => {
     getAllBirdsByArea(context.location)
       .then(birds => {
-        updateImages(birds);
+        updateBirdList(birds);
       })
       .then(() => {
         updateIsLoading(false);
@@ -53,7 +53,14 @@ const MainScreen = props => {
     const getLocation = async () => {
       try {
         const { lat, lon } = await getLocationHandler();
-        setContext({ ...context, location: `?lat=${lat}&lon=${lon}` });
+        console.log(lat, lon, "line 56 MainScreen.jsx");
+        setContext({
+          ...context,
+          location: `?lat=${lat}&lon=${lon}`,
+          lon,
+          lat
+        });
+        console.log(context.location, "line 58 MainScreen.jsx");
       } catch (err) {
         console.log(err);
       }
@@ -73,7 +80,7 @@ const MainScreen = props => {
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.text}>Birds in your area</Text>
-          {images.map((bird, i) => {
+          {birdList.map((bird, i) => {
             return (
               <TouchableWithoutFeedback
                 style={styles.birds}
@@ -94,7 +101,7 @@ const MainScreen = props => {
           icon={faMapMarker}
           size={30}
           color="#DD4B3E"
-          onPress={() => navigate("Map")}
+          onPress={() => navigate("NewPlace", birdList)}
           style={{
             alignSelf: "flex-start",
             top: 20,

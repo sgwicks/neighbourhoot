@@ -13,17 +13,13 @@ exports.getAllBirdsByArea = location => {
     });
 };
 
-exports.getBirdsToPopulateMap = () => {
+exports.getAllBirds = () => {
   return axios
-    .get("https://api.ebird.org/v2/data/obs/GB/recent", {
-      headers: { "X-eBirdApiToken": "4dke8miqalko" }
-    })
+    .get(url)
     .then(response => {
-      return response.data;
+      console.log(response, "response");
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 };
 
 exports.postBird = (bird_name, img_url, user_id, location) => {

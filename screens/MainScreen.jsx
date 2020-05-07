@@ -115,7 +115,7 @@ const MainScreen = ({ navigation }) => {
         <FontAwesomeIcon
           icon={faCamera}
           size={30}
-          style={{ alignSelf: "flex-end", bottom: 20, right: 80, flex: 1 }}
+          style={{ alignSelf: "flex-end", bottom: 25, right: 75, flex: 1 }}
         />
         <FontAwesomeIcon
           icon={faPlusCircle}

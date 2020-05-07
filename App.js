@@ -48,11 +48,6 @@ export default function App() {
           <Header title="Birds" />
           <RootStack.Navigator>
             <RootStack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ title: "Home" }}
-            />
-            <RootStack.Screen
               name="Main"
               component={MainView}
               options={{
@@ -64,6 +59,12 @@ export default function App() {
                 )
               }}
             />
+            <RootStack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ title: "Home" }}
+            />
+
             <RootStack.Screen
               name="Map"
               component={MapScreen}

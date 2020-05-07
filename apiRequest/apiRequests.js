@@ -15,9 +15,9 @@ exports.getAllBirdsByArea = location => {
 
 exports.getAllBirds = () => {
   return axios
-    .get(url)
+    .get(`${url}/names`)
     .then(response => {
-      console.log(response, "response");
+      return JSON.parse(response.data.body);
     })
     .catch(err => console.log(err));
 };

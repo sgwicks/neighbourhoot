@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, Button, Text, Image, StyleSheet, Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
@@ -6,9 +6,14 @@ import { RNS3 } from "react-native-aws3";
 import accessKeys from "../keys";
 import { postBird } from "../apiRequest/apiRequests";
 import { LocationContext, LocationProvider } from "./LocationContext";
+import BirdDropDown from "./BirdDropDown";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const ImgPicker = props => {
+  const [context, setContext] = useContext(LocationContext);
+  const { lat, lon } = context;
   const [pickedImage, setPickedImage] = useState();
+  const [img_url, setImageURL] = useState("");
 
   const verifyPermissions = async () => {
     const result = await Permissions.askAsync(
@@ -56,7 +61,7 @@ const ImgPicker = props => {
         successActionStatus: 201
       };
 
-      const img_url = RNS3.put(file, config)
+      RNS3.put(file, config)
         .then(
           ({
             body: {
@@ -66,6 +71,7 @@ const ImgPicker = props => {
             return location;
           }
         )
+        .then(img_url => setImageURL(img_url))
         .catch(err => {
           console.log(err, "errr in RNS3");
         });
@@ -81,10 +87,10 @@ const ImgPicker = props => {
 
   const postBirdHandler = () => {
     const bird = {
-      img_url: "welikerobins.com",
+      img_url,
       bird_name: "European Robin",
       user_id,
-      location: { lat: 0.01, lon: -0.02 }
+      location: { lat, lon }
     };
     postBird(bird);
   };
@@ -98,8 +104,13 @@ const ImgPicker = props => {
           <Image style={styles.image} source={{ uri: pickedImage }} />
         )}
       </View>
-      <Button title="Take Image" onPress={takeImageHandler} />
-      <Button title="Post Bird Sighting" onPress={postBirdHandler} />
+      <TouchableOpacity onPress={takeImageHandler}>
+        <Text>Take Image</Text>
+      </TouchableOpacity>
+      <BirdDropDown containerStyle={{ width: 170 }} />
+      <TouchableOpacity onPress={postBirdHandler}>
+        <Text>Post Bird Sighting</Text>
+      </TouchableOpacity>
     </View>
   );
 };

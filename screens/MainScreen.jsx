@@ -1,24 +1,16 @@
-import React, { useState, useEffect, Fragment } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
-import { getAllBirdsByArea } from "../apiRequest/apiRequests";
-import ImagePicker from "../components/ImagePicker";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faMapMarker, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import Overlay from "react-native-modal-overlay";
-
+import React, { useState, useEffect, Fragment } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { getAllBirdsByArea } from '../apiRequest/apiRequests';
+import ImagePicker from '../components/ImagePicker';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faMapMarker, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import MapScreen from './MapScreen';
 const MainScreen = ({ navigation }) => {
   const { navigate } = navigation;
 
   const [images, updateImages] = useState([]);
-  const [location, updateLocation] = useState("?lat=0&lon=0");
+  const [location, updateLocation] = useState('?lat=0&lon=0');
   const [isLoading, updateIsLoading] = useState(true);
   const [isVisible, updateIsVisible] = useState(true);
   // const imageTakenHandler = imagePath => {
@@ -29,7 +21,7 @@ const MainScreen = ({ navigation }) => {
 
   useEffect(() => {
     getAllBirdsByArea(getAreaBirdsUrl)
-      .then(birds => {
+      .then((birds) => {
         updateImages(birds);
       })
       .then(() => {
@@ -53,10 +45,9 @@ const MainScreen = ({ navigation }) => {
               <TouchableWithoutFeedback
                 style={styles.birds}
                 onPress={() => {
-                  navigate("MyModal", { ...bird });
+                  navigation.navigate('MyModal', { ...bird });
                 }}
-                key={i}
-              >
+                key={i}>
                 <Image style={styles.birds} source={{ uri: bird.img_url }} />
               </TouchableWithoutFeedback>
             );
@@ -68,10 +59,10 @@ const MainScreen = ({ navigation }) => {
         <FontAwesomeIcon
           icon={faMapMarker}
           size={30}
-          color="#DD4B3E"
-          onPress={() => navigate("Map")}
+          color='#DD4B3E'
+          onPress={() => navigate('Map')}
           style={{
-            alignSelf: "flex-start",
+            alignSelf: 'flex-start',
             top: 20,
             bottom: 10,
             left: 20,
@@ -81,18 +72,17 @@ const MainScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => {
-            navigate("FilterModal");
-          }}
-        >
+            navigate('FilterModal');
+          }}>
           <Text style={styles.buttonText}>Filter</Text>
         </TouchableOpacity>
 
         <FontAwesomeIcon
           icon={faPlusCircle}
           size={30}
-          onPress={() => navigate("Profile")}
+          onPress={() => navigate('Profile')}
           style={{
-            alignSelf: "flex-end",
+            alignSelf: 'flex-end',
             bottom: 25,
             right: 20,
             flex: 1
@@ -106,7 +96,7 @@ const MainScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   birds: {
     height: 150,
-    display: "flex",
+    display: 'flex',
     width: 150,
     // borderWidth: 1,
     // borderColor: "black",
@@ -115,34 +105,34 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    backgroundColor: "#2D9676",
-    justifyContent: "space-around"
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    backgroundColor: '#2D9676',
+    justifyContent: 'space-around'
     // paddingBottom: 30
   },
   text: {
-    color: "white",
+    color: 'white',
     fontSize: 30,
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    textAlign: "center",
-    fontFamily: "System",
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    textAlign: 'center',
+    fontFamily: 'System',
     marginBottom: 40
   },
   buttonContainer: {
-    backgroundColor: "#6D3716",
+    backgroundColor: '#6D3716',
     borderRadius: 5,
     padding: 10,
     margin: 20,
     width: 100,
-    alignSelf: "center"
+    alignSelf: 'center'
   },
   buttonText: {
     fontSize: 10,
-    color: "white",
-    textAlign: "center"
+    color: 'white',
+    textAlign: 'center'
   },
   // mainText: {
   //   color: "black",
@@ -152,11 +142,11 @@ const styles = StyleSheet.create({
   //   paddingRight: 30,
   // },
   iconContainer: {
-    backgroundColor: "#2D9676",
-    borderTopColor: "black",
+    backgroundColor: '#2D9676',
+    borderTopColor: 'black',
     borderTopWidth: 4,
     height: 60,
-    justifyContent: "space-around"
+    justifyContent: 'space-around'
   }
 });
 

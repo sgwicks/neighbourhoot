@@ -1,19 +1,19 @@
-import * as React from "react";
-import { Platform, StyleSheet, Text, View, Button } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import SignUpScreen from "./screens/SignUpScreen";
-import LoginScreen from "./screens/LoginScreen";
-import HomeScreen from "./screens/HomeScreen";
-import MainScreen from "./screens/MainScreen";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import BirdOverlay from "./components/BirdOverlay";
-import MapScreen from "./screens/MapScreen";
-import NewPlaceScreen from "./screens/NewPlaceScreen";
-import ProfileScreen from "./screens/ProfileScreen";
-import FilterOverlay from "./components/FilterOverlay";
-import Header from "./components/Header";
-import ProfileButton from "./components/ProfileButton";
+import * as React from 'react';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import SignUpScreen from './screens/SignUpScreen';
+import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
+import MainScreen from './screens/MainScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
+import BirdOverlay from './components/BirdOverlay';
+import MapScreen from './screens/MapScreen';
+import NewPlaceScreen from './screens/NewPlaceScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import FilterOverlay from './components/FilterOverlay';
+import Header from './components/Header';
+import ProfileButton from './components/ProfileButton';
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
@@ -26,10 +26,10 @@ const MainStack = createStackNavigator();
 
 const MainView = () => {
   return (
-    <MainStack.Navigator headerMode="none">
-      <MainStack.Screen name="newMain" component={MainScreen} />
-      <MainStack.Screen name="MyModal" component={BirdOverlay} />
-      <MainStack.Screen name="FilterModal" component={FilterOverlay} />
+    <MainStack.Navigator headerMode='none'>
+      <MainStack.Screen name='newMain' component={MainScreen} />
+      <MainStack.Screen name='MyModal' component={BirdOverlay} />
+      <MainStack.Screen name='FilterModal' component={FilterOverlay} />
     </MainStack.Navigator>
   );
 };
@@ -39,7 +39,7 @@ export default function App() {
     <>
       <View style={styles.screen}>
         <NavigationContainer>
-          <Header title="Birds" />
+          <Header title='Birds' />
           <RootStack.Navigator
           // options={{
           //   headerStyle: { backgroundColor: "#2D9676" },
@@ -47,53 +47,53 @@ export default function App() {
           // }}
           >
             <RootStack.Screen
-              name="Main"
+              name='Main'
               component={MainView}
               options={{
                 headerRight: () => (
                   <Button
                     onPress={() => navigation.navigate(ProfileScreen)}
-                    title="Info"
+                    title='Info'
                   />
                 )
               }}
             />
             <RootStack.Screen
-              name="Map"
+              name='Map'
               component={MapScreen}
-              options={{ title: "Map" }}
+              options={{ title: 'Map' }}
             />
             <RootStack.Screen
-              name="NewPlace"
+              name='NewPlace'
               component={NewPlaceScreen}
-              options={{ title: "New Place Screen" }}
+              options={{ title: 'New Place Screen' }}
             />
 
             <RootStack.Screen
-              name="Home"
+              name='Home'
               component={HomeScreen}
-              options={{ title: "Home" }}
+              options={{ title: 'Home' }}
             />
             <RootStack.Screen
-              name="Login"
+              name='Login'
               component={LoginScreen}
-              options={{ title: "Login" }}
+              options={{ title: 'Login' }}
             />
             <RootStack.Screen
-              name="SignUp"
+              name='SignUp'
               component={SignUpScreen}
-              options={{ title: "Sign Up" }}
+              options={{ title: 'Sign Up' }}
             />
             <RootStack.Screen
-              name="Welcome"
+              name='Welcome'
               component={WelcomeScreen}
-              options={{ title: "Welcome" }}
+              options={{ title: 'Welcome' }}
             />
 
             <RootStack.Screen
-              name="Profile"
+              name='Profile'
               component={ProfileScreen}
-              options={{ title: "Profile" }}
+              options={{ title: 'Profile' }}
             />
           </RootStack.Navigator>
         </NavigationContainer>
@@ -108,19 +108,19 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
   },
   welcome: {
     fontSize: 20,
-    textAlign: "center",
+    textAlign: 'center',
 
     margin: 10
   },
   instructions: {
-    textAlign: "center",
-    color: "#333333",
+    textAlign: 'center',
+    color: '#333333',
 
     marginBottom: 5
   }

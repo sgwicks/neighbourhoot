@@ -6,7 +6,7 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
-  Button,
+  Button
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Auth } from "aws-amplify";
@@ -32,7 +32,7 @@ const SignUpScreen = ({ navigation }) => {
     setShow(true);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
     const userData = {
       firstName,
@@ -40,7 +40,7 @@ const SignUpScreen = ({ navigation }) => {
       email,
       dateOfBirth,
       password,
-      confirmPassword,
+      confirmPassword
     };
 
     const navigator = () => {
@@ -64,8 +64,8 @@ const SignUpScreen = ({ navigation }) => {
             password,
             confirmPassword,
             attributes: {
-              email,
-            },
+              email
+            }
           });
 
           navigator();
@@ -89,17 +89,17 @@ const SignUpScreen = ({ navigation }) => {
         <Text>Enter your first name</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={(text) => setFirstName(text)}
+          onChangeText={text => setFirstName(text)}
         />
         <Text>Enter your surname</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={(text) => setLastName(text)}
+          onChangeText={text => setLastName(text)}
         />
         <Text>Enter your email address</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={text => setEmail(text)}
           keyboardType="email-address"
           autoCapitalize="none"
         />
@@ -129,14 +129,14 @@ const SignUpScreen = ({ navigation }) => {
         <Text>Enter Password</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={text => setPassword(text)}
           secureTextEntry={true}
           keyboardType="default"
         />
         <Text>Confirm Password</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={(text) => setConfirmPassword(text)}
+          onChangeText={text => setConfirmPassword(text)}
           secureTextEntry={true}
           keyboardType="default"
         />
@@ -156,27 +156,27 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#2D9676",
+    backgroundColor: "#2D9676"
   },
   text: {
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    fontFamily: "Roboto",
-    margin: 20,
+    // fontFamily: "Roboto",
+    margin: 20
   },
   buttonContainer: {
     backgroundColor: "#6D3716",
     borderRadius: 5,
     padding: 10,
     margin: 20,
-    width: 100,
+    width: 100
   },
   buttonText: {
     fontSize: 20,
     color: "white",
-    textAlign: "center",
+    textAlign: "center"
   },
   textInput: {
     borderColor: "black",
@@ -188,10 +188,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     padding: 10,
-    backgroundColor: "#42A131",
+    backgroundColor: "#42A131"
   },
   errorMsg: {
-    color: "red",
+    color: "red"
   },
   datePicker: {
     borderRadius: 5,
@@ -200,8 +200,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#49B036",
     marginBottom: 10,
     borderColor: "black",
-    borderWidth: 1,
-  },
+    borderWidth: 1
+  }
 });
 
 export default SignUpScreen;

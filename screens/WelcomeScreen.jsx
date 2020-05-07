@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#2D9676",
+    backgroundColor: "#2D9676"
   },
   text: {
     color: "white",
@@ -32,28 +32,28 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     textAlign: "center",
-    fontFamily: "Roboto",
-    marginBottom: 40,
+    // fontFamily: "Roboto",
+    marginBottom: 40
   },
   buttonContainer: {
     backgroundColor: "#6D3716",
     borderRadius: 5,
     padding: 10,
     margin: 20,
-    width: 100,
+    width: 100
   },
   buttonText: {
     fontSize: 20,
     color: "white",
-    textAlign: "center",
+    textAlign: "center"
   },
   mainText: {
     color: "black",
     fontSize: 15,
     textAlign: "center",
     paddingLeft: 30,
-    paddingRight: 30,
-  },
+    paddingRight: 30
+  }
 });
 
 export default WelcomeScreen;

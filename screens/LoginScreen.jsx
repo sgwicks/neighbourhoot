@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Button,
+  Button
 } from "react-native";
 import Amplify, { Auth } from "aws-amplify";
 import SignUpScreen from "./SignUpScreen";
@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
     navigate("Main");
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     //AWS Cognito integration here
@@ -47,7 +47,7 @@ const LoginScreen = ({ navigation }) => {
         <Text>Enter your email address</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={text => setEmail(text)}
           value={email}
           keyboardType="email-address"
           autoCapitalize="none"
@@ -56,7 +56,7 @@ const LoginScreen = ({ navigation }) => {
         <Text>Enter your password</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={text => setPassword(text)}
           value={password}
           secureTextEntry={true}
           keyboardType="default"
@@ -78,27 +78,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#2D9676",
-    marginTop: 50,
+    marginTop: 50
   },
   text: {
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    fontFamily: "Roboto",
-    margin: 20,
+    // fontFamily: "Roboto",
+    margin: 20
   },
   buttonContainer: {
     backgroundColor: "#6D3716",
     borderRadius: 5,
     padding: 10,
     margin: 20,
-    width: 100,
+    width: 100
   },
   buttonText: {
     fontSize: 20,
     color: "white",
-    textAlign: "center",
+    textAlign: "center"
   },
   textInput: {
     borderColor: "black",
@@ -110,11 +110,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     padding: 10,
-    backgroundColor: "#42A131",
+    backgroundColor: "#42A131"
   },
   errorMsg: {
-    color: "red",
-  },
+    color: "red"
+  }
 });
 
 export default LoginScreen;

@@ -24,20 +24,15 @@ import {
 import { getLocationHandler } from "../components/UserLocation";
 
 const MainScreen = ({ navigation }) => {
-  // console.log(props);
-  // const contextType = LocationContext;
-  // console.log(contextType);
   const { navigate } = navigation;
   const [context, setContext] = useContext(LocationContext);
-
   const [birdList, updateBirdList] = useState([]);
-  // const [location, updateLocation] = useState("?lat=0&lon=0");
   const [isLoading, updateIsLoading] = useState(true);
   const [isVisible, updateIsVisible] = useState(true);
-  // const imageTakenHandler = imagePath => {
-  //   setImages({ img: imagePath });
-  // };
-  // setContext({...context, location: "new location"})
+
+  const imageTakenHandler = imagePath => {
+    setImages({ img: imagePath });
+  };
 
   useEffect(() => {
     getAllBirdsByArea(context.location)
@@ -53,14 +48,13 @@ const MainScreen = ({ navigation }) => {
     const getLocation = async () => {
       try {
         const { lat, lon } = await getLocationHandler();
-        console.log(lat, lon, "line 56 MainScreen.jsx");
+
         setContext({
           ...context,
           location: `?lat=${lat}&lon=${lon}`,
           lon,
           lat
         });
-        console.log(context.location, "line 58 MainScreen.jsx");
       } catch (err) {
         console.log(err);
       }
@@ -76,7 +70,6 @@ const MainScreen = ({ navigation }) => {
     );
   return (
     <>
-      {/* {console.log(context.location)} */}
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.text}>Birds in your area</Text>
@@ -93,7 +86,7 @@ const MainScreen = ({ navigation }) => {
               </TouchableWithoutFeedback>
             );
           })}
-          {/* <ImagePicker onImageTaken={imageTakenHandler} /> */}
+          <ImagePicker onImageTaken={imageTakenHandler} />
         </View>
       </ScrollView>
       <View style={styles.iconContainer}>
@@ -122,7 +115,7 @@ const MainScreen = ({ navigation }) => {
         <FontAwesomeIcon
           icon={faCamera}
           size={30}
-          style={{ bottom: 25, right: 50, flex: 1 }}
+          style={{ alignSelf: "flex-end", bottom: 20, right: 80, flex: 1 }}
         />
         <FontAwesomeIcon
           icon={faPlusCircle}

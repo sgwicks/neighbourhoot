@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { View, Button, Text, Image, StyleSheet, Alert } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
-import { RNS3 } from 'react-native-aws3';
-import accessKeys from '../keys';
-import { postBird } from '../apiRequest/apiRequests';
+import React, { useState } from "react";
+import { View, Button, Text, Image, StyleSheet, Alert } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+import { RNS3 } from "react-native-aws3";
+import accessKeys from "../keys";
+import { postBird } from "../apiRequest/apiRequests";
+import { LocationContext, LocationProvider } from "./LocationContext";
 
-const ImgPicker = (props) => {
+const ImgPicker = props => {
   const [pickedImage, setPickedImage] = useState();
 
   const verifyPermissions = async () => {
@@ -15,17 +16,17 @@ const ImgPicker = (props) => {
       Permissions.CAMERA_ROLL,
       Permissions.LOCATION
     );
-    if (result.status !== 'granted') {
+    if (result.status !== "granted") {
       Alert.alert(
-        'Insufficient permissions.',
-        'You need to grant camera permissions to use this app.',
-        [{ text: 'Okay' }]
+        "Insufficient permissions.",
+        "You need to grant camera permissions to use this app.",
+        [{ text: "Okay" }]
       );
       return false;
     }
     return true;
   };
-  const user_id = '33';
+  const user_id = "33";
 
   const takeImageHandler = async () => {
     try {
@@ -35,21 +36,21 @@ const ImgPicker = (props) => {
       }
       const image = await ImagePicker.launchCameraAsync({
         allowsEditing: true,
-        aspect: [16, 9],
+        aspect: [1, 1],
         quality: 0.5
       });
-      console.log(image, '<<<<<<<');
+      console.log(image, "<<<<<<<");
 
       const file = {
         uri: image.uri,
-        name: user_id + '/' + Math.random().toString(),
-        type: 'image/jpg'
+        name: user_id + "/" + Math.random().toString(),
+        type: "image/jpg"
       };
 
       const config = {
-        keyPrefix: 's3/',
-        bucket: 'birdpicstorage',
-        region: 'eu-west-2',
+        keyPrefix: "s3/",
+        bucket: "birdpicstorage",
+        region: "eu-west-2",
         accessKey: accessKeys.AWSaccessKey,
         secretKey: accessKeys.AWSsecretKey,
         successActionStatus: 201
@@ -65,10 +66,10 @@ const ImgPicker = (props) => {
             return location;
           }
         )
-        .catch((err) => {
-          console.log(err, 'errr in RNS3');
+        .catch(err => {
+          console.log(err, "errr in RNS3");
         });
-      // setPickedImage(image.uri);
+      setPickedImage(image.uri);
 
       // postBird()
       //   .then((response) => console.log(response))
@@ -76,6 +77,16 @@ const ImgPicker = (props) => {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const postBirdHandler = () => {
+    const bird = {
+      img_url: "welikerobins.com",
+      bird_name: "European Robin",
+      user_id,
+      location: { lat: 0.01, lon: -0.02 }
+    };
+    postBird(bird);
   };
 
   return (
@@ -87,28 +98,29 @@ const ImgPicker = (props) => {
           <Image style={styles.image} source={{ uri: pickedImage }} />
         )}
       </View>
-      <Button title='Take Image' onPress={takeImageHandler} />
+      <Button title="Take Image" onPress={takeImageHandler} />
+      <Button title="Post Bird Sighting" onPress={postBirdHandler} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   imagePicker: {
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 15
   },
   imagePreview: {
-    width: '100%',
+    width: "100%",
     height: 200,
     marginBottom: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#ccc',
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#ccc",
     borderWidth: 1
   },
   image: {
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%"
   }
 });
 

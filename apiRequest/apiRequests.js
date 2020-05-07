@@ -22,15 +22,9 @@ exports.getAllBirds = () => {
     .catch(err => console.log(err));
 };
 
-exports.postBird = (bird_name, img_url, user_id, location) => {
-  const data = {
-    bird_name,
-    img_url,
-    user_id,
-    location
-  };
+exports.postBird = bird => {
   return axios
-    .post(url, data)
+    .post(url, bird)
     .then(response => {
       console.log(response.data);
     })

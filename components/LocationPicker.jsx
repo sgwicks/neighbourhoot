@@ -40,10 +40,10 @@ const LocationPicker = props => {
         timeInterval: 5000
       });
 
-      setPickedLocation({
+      return {
         lat: location.coords.latitude,
-        lng: location.coords.longitude
-      });
+        lon: location.coords.longitude
+      };
     } catch (err) {
       Alert.alert("could not fetch location", "Please try again", [
         { text: "okay" }

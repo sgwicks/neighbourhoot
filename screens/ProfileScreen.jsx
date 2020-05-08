@@ -4,6 +4,7 @@ import { getBirdsByUserId } from "../apiRequest/apiRequests";
 import ImagePicker from "../components/ImagePicker";
 import { LocationContext } from "../components/LocationContext";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import NavBar from "../components/NavBar";
 
 const ProfileScreen = ({ navigation }) => {
   const [context, setContext] = useContext(LocationContext);
@@ -17,8 +18,15 @@ const ProfileScreen = ({ navigation }) => {
     });
   }, [trigger]);
 
+  const handlePress = () => {
+    navigation.navigate("ProfileAddBird", { birdList, updateBirdList });
+  };
+
   return (
     <ScrollView>
+      <TouchableWithoutFeedback onPress={handlePress}>
+        <Text>Add Sighting!</Text>
+      </TouchableWithoutFeedback>
       <View>
         {birdList.map((bird, i) => {
           return (
@@ -39,6 +47,7 @@ const ProfileScreen = ({ navigation }) => {
           );
         })}
       </View>
+      <NavBar navigation={navigation} />
     </ScrollView>
   );
 };

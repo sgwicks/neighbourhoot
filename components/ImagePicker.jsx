@@ -91,7 +91,6 @@ const ImgPicker = props => {
     postBird(bird).then(response => {
       props.updateBirdList([...props.birdList, response]);
     });
-
     setPickedImage();
   };
 

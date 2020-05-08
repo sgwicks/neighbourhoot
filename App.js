@@ -18,6 +18,7 @@ import {
   LocationContext,
   LocationProvider
 } from "./components/LocationContext";
+import ImagePicker from "./components/ImagePicker";
 
 const instructions = Platform.select({
   ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
@@ -33,18 +34,19 @@ const MainView = () => {
   return (
     <MainStack.Navigator headerMode="none">
       <MainStack.Screen name="newMain" component={MainScreen} />
-
       <MainStack.Screen name="MyModal" component={BirdOverlay} />
       <MainStack.Screen name="FilterModal" component={FilterOverlay} />
+      <MainStack.Screen name="MainAddBird" component={ImagePicker} />
     </MainStack.Navigator>
   );
 };
 
 const ProfileView = () => {
   return (
-    <ProfileStack.Navigator>
+    <ProfileStack.Navigator headerMode="none">
       <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
       <ProfileStack.Screen name="ProfileModal" component={BirdOverlay} />
+      <ProfileStack.Screen name="ProfileAddBird" component={ImagePicker} />
     </ProfileStack.Navigator>
   );
 };
@@ -56,11 +58,6 @@ export default function App() {
         <NavigationContainer>
           <Header title="Birds" />
           <RootStack.Navigator>
-            <RootStack.Screen
-              name="Profile"
-              component={ProfileView}
-              options={{ title: "Profile" }}
-            />
             <RootStack.Screen
               name="Home"
               component={HomeScreen}
@@ -101,6 +98,11 @@ export default function App() {
               name="Welcome"
               component={WelcomeScreen}
               options={{ title: "Welcome" }}
+            />
+            <RootStack.Screen
+              name="Profile"
+              component={ProfileView}
+              options={{ title: "Profile" }}
             />
           </RootStack.Navigator>
         </NavigationContainer>

@@ -48,9 +48,11 @@ const BirdOverlay = ({ route, navigation }) => {
       <Image style={{ width: 100, height: 100 }} source={{ uri: img_url }} />
       <Text>{bird_name}</Text>
       <Text>{featureList(features)}</Text>
-      <TouchableOpacity onPress={handleDelete}>
-        <Text>Delete</Text>
-      </TouchableOpacity>
+      {screen === "ProfileScreen" && (
+        <TouchableOpacity onPress={handleDelete}>
+          <Text>Delete</Text>
+        </TouchableOpacity>
+      )}
     </Overlay>
   );
 };

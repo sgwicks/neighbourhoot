@@ -1,36 +1,23 @@
-import React, { useState, useEffect, useContext, Fragment } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import React, { useState, useEffect, useContext } from "react";
+import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import {
   getAllBirdsByArea,
   getBirdsByFeatures
 } from "../apiRequest/apiRequests";
 import ImagePicker from "../components/ImagePicker";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faMapMarker,
-  faPlusCircle,
-  faCamera
-} from "@fortawesome/free-solid-svg-icons";
+
 import {
   LocationContext,
   LocationProvider
 } from "../components/LocationContext";
 import { getLocationHandler } from "../components/UserLocation";
+import NavBar from "../components/NavBar";
 
 const MainScreen = ({ navigation, route }) => {
-  const { navigate } = navigation;
   const [context, setContext] = useContext(LocationContext);
   const [birdList, updateBirdList] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
-  const [isVisible, updateIsVisible] = useState(true);
 
   const imageTakenHandler = imagePath => {
     setImages({ img: imagePath });
@@ -72,12 +59,6 @@ const MainScreen = ({ navigation, route }) => {
     getLocation();
   }, []);
 
-  // const checkFilter = (chest, head, back) => {
-  //   console.log(chest, "MAINSCREEN");
-  //   console.log(head, "MAINSCREEN");
-  //   console.log(back, "MAINSCREEN");
-  // };
-
   if (isLoading)
     return (
       <View>
@@ -112,47 +93,7 @@ const MainScreen = ({ navigation, route }) => {
           />
         </View>
       </ScrollView>
-      <View style={styles.iconContainer}>
-        <FontAwesomeIcon
-          icon={faMapMarker}
-          size={30}
-          color="#DD4B3E"
-          onPress={() => navigate("NewPlace", birdList)}
-          style={{
-            alignSelf: "flex-start",
-            top: 20,
-            bottom: 10,
-            left: 20,
-            flex: 1
-          }}
-        />
-
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => {
-            navigate("FilterModal");
-          }}
-          // checkFilter={checkFilter}
-        >
-          <Text style={styles.buttonText}>Filter</Text>
-        </TouchableOpacity>
-        <FontAwesomeIcon
-          icon={faCamera}
-          size={30}
-          style={{ alignSelf: "flex-end", bottom: 20, right: 75, flex: 1 }}
-        />
-        <FontAwesomeIcon
-          icon={faPlusCircle}
-          size={30}
-          onPress={() => navigate("Profile")}
-          style={{
-            alignSelf: "flex-end",
-            bottom: 25,
-            right: 20,
-            flex: 1
-          }}
-        />
-      </View>
+      <NavBar navigation={navigation} />
     </>
   );
 };
@@ -162,8 +103,6 @@ const styles = StyleSheet.create({
     height: 150,
     display: "flex",
     width: 150,
-    // borderWidth: 1,
-    // borderColor: "black",
     marginBottom: 40,
     borderRadius: 20
   },
@@ -174,7 +113,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#2D9676",
     justifyContent: "space-around"
-    // paddingBottom: 30
   },
   text: {
     color: "white",
@@ -198,13 +136,7 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center"
   },
-  // mainText: {
-  //   color: "black",
-  //   fontSize: 15,
-  //   textAlign: "center",
-  //   paddingLeft: 30,
-  //   paddingRight: 30,
-  // },
+
   iconContainer: {
     backgroundColor: "#2D9676",
     borderTopColor: "black",

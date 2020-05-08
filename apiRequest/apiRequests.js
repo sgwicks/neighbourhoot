@@ -51,4 +51,13 @@ exports.getBirdsByUserId = user_id => {
     .catch(err => console.log(err));
 };
 
+exports.deleteBird = (bird_id, bird_name) => {
+  return axios
+    .delete(url, { data: { bird_id, bird_name } })
+    .then(response => {
+      return JSON.parse(response.data.body);
+    })
+    .catch(err => console.log(err));
+};
+
 // postBird('Robin', 'https://something', '33', { lat: 54.876, lon: -1.45765 });

@@ -9,12 +9,13 @@ const ProfileScreen = ({ navigation }) => {
   const [context, setContext] = useContext(LocationContext);
   const [birdList, updateBirdList] = useState([]);
   const { user_id } = context;
+  const [trigger, toggleTrigger] = useState(true);
 
   useEffect(() => {
     getBirdsByUserId(user_id).then(response => {
       updateBirdList(response);
     });
-  }, []);
+  }, [trigger]);
 
   return (
     <ScrollView>
@@ -26,7 +27,9 @@ const ProfileScreen = ({ navigation }) => {
               onPress={() => {
                 navigation.navigate("ProfileModal", {
                   ...bird,
-                  screen: "ProfileScreen"
+                  screen: "ProfileScreen",
+                  toggleTrigger,
+                  trigger
                 });
               }}
               key={i}

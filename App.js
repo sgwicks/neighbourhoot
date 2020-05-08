@@ -8,7 +8,6 @@ import HomeScreen from "./screens/HomeScreen";
 import MainScreen from "./screens/MainScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import BirdOverlay from "./components/BirdOverlay";
-import MapScreen from "./screens/MapScreen";
 import NewPlaceScreen from "./screens/NewPlaceScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import FilterOverlay from "./components/FilterOverlay";
@@ -65,11 +64,6 @@ export default function App() {
               options={{ title: "Home" }}
             />
 
-            <RootStack.Screen
-              name="Map"
-              component={MapScreen}
-              options={{ title: "Map" }}
-            />
             <RootStack.Screen
               name="NewPlace"
               component={NewPlaceScreen}

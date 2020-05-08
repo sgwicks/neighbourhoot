@@ -14,6 +14,7 @@ const ImgPicker = props => {
   const { lat, lon } = context;
   const [pickedImage, setPickedImage] = useState();
   const [img_url, setImageURL] = useState("");
+  const [bird_name, setBird_Name] = useState("");
 
   const verifyPermissions = async () => {
     const result = await Permissions.askAsync(
@@ -88,7 +89,7 @@ const ImgPicker = props => {
   const postBirdHandler = () => {
     const bird = {
       img_url,
-      bird_name: "European Robin",
+      bird_name,
       user_id,
       location: { lat, lon }
     };
@@ -107,7 +108,10 @@ const ImgPicker = props => {
       <TouchableOpacity onPress={takeImageHandler}>
         <Text>Take Image</Text>
       </TouchableOpacity>
-      <BirdDropDown containerStyle={{ width: 170 }} />
+      <BirdDropDown
+        containerStyle={{ width: 170 }}
+        setBird_Name={setBird_Name}
+      />
       <TouchableOpacity onPress={postBirdHandler}>
         <Text>Post Bird Sighting</Text>
       </TouchableOpacity>

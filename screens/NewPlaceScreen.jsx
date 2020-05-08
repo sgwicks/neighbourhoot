@@ -6,7 +6,6 @@ import {
   StyleSheet,
   ActivityIndicator
 } from "react-native";
-import LocationPicker from "../components/LocationPicker";
 import MapView, { Marker } from "react-native-maps";
 import * as Permissions from "expo-permissions";
 import { LocationContext } from "../components/LocationContext";

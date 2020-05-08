@@ -19,7 +19,7 @@ const BirdDropDown = props => {
   }, []);
 
   const handleChange = text => {
-    setUserChoice(text);
+    props.setBird_Name(text);
   };
 
   return (

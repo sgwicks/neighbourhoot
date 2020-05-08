@@ -16,7 +16,6 @@ import {
   faPlusCircle,
   faCamera
 } from "@fortawesome/free-solid-svg-icons";
-import MapScreen from "./MapScreen";
 import {
   LocationContext,
   LocationProvider

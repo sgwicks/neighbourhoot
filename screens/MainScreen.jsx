@@ -61,6 +61,12 @@ const MainScreen = ({ navigation }) => {
     getLocation();
   }, []);
 
+  // const checkFilter = (chest, head, back) => {
+  //   console.log(chest, "MAINSCREEN");
+  //   console.log(head, "MAINSCREEN");
+  //   console.log(back, "MAINSCREEN");
+  // };
+
   if (isLoading)
     return (
       <View>
@@ -108,6 +114,7 @@ const MainScreen = ({ navigation }) => {
           onPress={() => {
             navigate("FilterModal");
           }}
+          // checkFilter={checkFilter}
         >
           <Text style={styles.buttonText}>Filter</Text>
         </TouchableOpacity>

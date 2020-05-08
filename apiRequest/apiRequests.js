@@ -26,11 +26,18 @@ exports.postBird = bird => {
   return axios
     .post(url, bird)
     .then(response => {
-      console.log(response.data);
+      console.log("Bird Posted");
     })
     .catch(err => {
       console.log(err, "<<<<<<<<<<<ERRRROORR");
     });
+};
+
+exports.getBirdsByFeatures = features => {
+  return axios
+    .get(URL, { params: features })
+    .then(response => console.log(response.data.body))
+    .catch(err => console.log(err));
 };
 
 // postBird('Robin', 'https://something', '33', { lat: 54.876, lon: -1.45765 });

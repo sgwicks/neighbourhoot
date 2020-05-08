@@ -3,7 +3,7 @@ import { View, Button, Text, Image, StyleSheet, Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { RNS3 } from "react-native-aws3";
-import accessKeys from "../keys";
+import accessKeys from "../keys2";
 import { postBird } from "../apiRequest/apiRequests";
 import { LocationContext, LocationProvider } from "./LocationContext";
 import BirdDropDown from "./BirdDropDown";
@@ -45,7 +45,6 @@ const ImgPicker = props => {
         aspect: [1, 1],
         quality: 0.5
       });
-      console.log(image, "<<<<<<<");
 
       const file = {
         uri: image.uri,
@@ -77,10 +76,6 @@ const ImgPicker = props => {
           console.log(err, "errr in RNS3");
         });
       setPickedImage(image.uri);
-
-      // postBird()
-      //   .then((response) => console.log(response))
-      //   .catch((err) => console.log(err));
     } catch (err) {
       console.log(err);
     }
@@ -94,6 +89,7 @@ const ImgPicker = props => {
       location: { lat, lon }
     };
     postBird(bird);
+    setPickedImage();
   };
 
   return (

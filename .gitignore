@@ -1,4 +1,5 @@
 node_modules
 .expo
-env
-keys
+
+key2.js
+env2.js

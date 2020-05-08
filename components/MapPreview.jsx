@@ -1,10 +1,9 @@
 import React from "react";
 
 import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
-import ENV from "../env";
+import ENV from "../env2";
 
-
-const MapPreview = (props) => {
+const MapPreview = props => {
   let imagePreviewUrl;
 
   if (props.location) {
@@ -28,12 +27,12 @@ const MapPreview = (props) => {
 const styles = StyleSheet.create({
   mapPreview: {
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   mapImage: {
     width: "100%",
-    height: "100%",
-  },
+    height: "100%"
+  }
 });
 
 export default MapPreview;

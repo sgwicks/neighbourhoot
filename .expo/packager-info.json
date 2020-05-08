@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "webpackServerPort": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 4471,
+  "expoServerNgrokUrl": "https://zu-jsf.anonymous.team-project.exp.direct",
+  "packagerNgrokUrl": "https://packager.zu-jsf.anonymous.team-project.exp.direct",
+  "ngrokPid": 4481,
+  "webpackServerPort": 19006
 }

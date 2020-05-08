@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -10,12 +10,13 @@ import {
 } from "react-native";
 import Amplify, { Auth } from "aws-amplify";
 import SignUpScreen from "./SignUpScreen";
-
+import { LocationContext } from "../components/LocationContext";
 const LoginScreen = ({ navigation }) => {
   const { navigate } = navigation;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [context, setContext] = useContext(LocationContext);
 
   const navigator = () => {
     navigate("Main");
@@ -28,9 +29,10 @@ const LoginScreen = ({ navigation }) => {
     try {
       if (email !== "" && password !== "") {
         const user = await Auth.signIn(email, password);
+        await setContext({ ...context, user_id: user.username });
         navigator();
       } else {
-        setErrorMsg("Username and password must be filled");
+        setErrorMsg("Email and password must be filled");
       }
     } catch (error) {
       const { message } = error;

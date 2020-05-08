@@ -32,7 +32,7 @@ const ImgPicker = props => {
     }
     return true;
   };
-  const user_id = "33";
+  const user_id = context.user_id;
 
   const takeImageHandler = async () => {
     try {

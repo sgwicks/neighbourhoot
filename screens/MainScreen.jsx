@@ -94,7 +94,10 @@ const MainScreen = ({ navigation, route }) => {
               <TouchableWithoutFeedback
                 style={styles.birds}
                 onPress={() => {
-                  navigation.navigate("MyModal", { ...bird });
+                  navigation.navigate("MyModal", {
+                    ...bird,
+                    screen: "newMain"
+                  });
                 }}
                 key={i}
               >

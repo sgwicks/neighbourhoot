@@ -5,13 +5,11 @@ import { Text, Image } from "react-native";
 const BirdOverlay = ({ route, navigation }) => {
   const { navigate } = navigation;
   const [isVisible, updateIsVisible] = useState(true);
-
+  const { bird_name, img_url, features, screen } = route.params;
   const onClose = () => {
     updateIsVisible(false);
-    navigate("newMain");
+    navigate(screen);
   };
-
-  const { bird_name, img_url, features } = route.params;
 
   const featureList = features => {
     const list = [];

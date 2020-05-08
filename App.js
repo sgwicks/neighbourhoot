@@ -26,6 +26,7 @@ const instructions = Platform.select({
 
 const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();
+const ProfileStack = createStackNavigator();
 // const navigation = useNavigation();
 
 const MainView = () => {
@@ -39,6 +40,15 @@ const MainView = () => {
   );
 };
 
+const ProfileView = () => {
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <ProfileStack.Screen name="ProfileModal" component={BirdOverlay} />
+    </ProfileStack.Navigator>
+  );
+};
+
 export default function App() {
   return (
     <LocationProvider>
@@ -46,6 +56,11 @@ export default function App() {
         <NavigationContainer>
           <Header title="Birds" />
           <RootStack.Navigator>
+            <RootStack.Screen
+              name="Profile"
+              component={ProfileView}
+              options={{ title: "Profile" }}
+            />
             <RootStack.Screen
               name="Home"
               component={HomeScreen}
@@ -86,12 +101,6 @@ export default function App() {
               name="Welcome"
               component={WelcomeScreen}
               options={{ title: "Welcome" }}
-            />
-
-            <RootStack.Screen
-              name="Profile"
-              component={ProfileScreen}
-              options={{ title: "Profile" }}
             />
           </RootStack.Navigator>
         </NavigationContainer>

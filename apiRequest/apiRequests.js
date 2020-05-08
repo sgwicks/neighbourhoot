@@ -40,4 +40,15 @@ exports.getBirdsByFeatures = features => {
     .catch(err => console.log(err));
 };
 
+exports.getBirdsByUserId = user_id => {
+  return axios
+    .get(
+      `https://rmx5oedl1b.execute-api.eu-west-2.amazonaws.com/development/users/${user_id}`
+    )
+    .then(response => {
+      return JSON.parse(response.data.body);
+    })
+    .catch(err => console.log(err));
+};
+
 // postBird('Robin', 'https://something', '33', { lat: 54.876, lon: -1.45765 });

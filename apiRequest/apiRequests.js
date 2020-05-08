@@ -35,8 +35,8 @@ exports.postBird = bird => {
 
 exports.getBirdsByFeatures = features => {
   return axios
-    .get(URL, { params: features })
-    .then(response => console.log(response.data.body))
+    .get(`${url}/features`, { params: features })
+    .then(response => JSON.parse(response.data.body))
     .catch(err => console.log(err));
 };
 

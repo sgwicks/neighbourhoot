@@ -7,7 +7,10 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-import { getAllBirdsByArea } from "../apiRequest/apiRequests";
+import {
+  getAllBirdsByArea,
+  getBirdsByFeatures
+} from "../apiRequest/apiRequests";
 import ImagePicker from "../components/ImagePicker";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -22,7 +25,7 @@ import {
 } from "../components/LocationContext";
 import { getLocationHandler } from "../components/UserLocation";
 
-const MainScreen = ({ navigation }) => {
+const MainScreen = ({ navigation, route }) => {
   const { navigate } = navigation;
   const [context, setContext] = useContext(LocationContext);
   const [birdList, updateBirdList] = useState([]);
@@ -34,14 +37,22 @@ const MainScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
-    getAllBirdsByArea(context.location)
-      .then(birds => {
-        updateBirdList(birds);
-      })
-      .then(() => {
-        updateIsLoading(false);
-      });
-  }, [context.location]);
+    if (route.params) {
+      getBirdsByFeatures(route.params.features)
+        .then(birds => {
+          updateBirdList(birds);
+        })
+        .then(updateIsLoading(false));
+    } else {
+      getAllBirdsByArea(context.location)
+        .then(birds => {
+          updateBirdList(birds);
+        })
+        .then(() => {
+          updateIsLoading(false);
+        });
+    }
+  }, [context.location, route.params]);
 
   useEffect(() => {
     const getLocation = async () => {

@@ -17,37 +17,47 @@ const FilterOverlay = ({ route, navigation }) => {
 
   const chestColour = [
     {
-      value: "a"
+      value: "red"
     },
     {
-      value: "Mango"
+      value: "brown"
     },
     {
-      value: "Pear"
+      value: "black"
     }
   ];
 
   const headColour = [
     {
-      value: "a"
+      value: "blue"
     },
     {
-      value: "b"
+      value: "yellow"
     },
     {
-      value: "c"
+      value: "brown"
     }
   ];
 
   const backColour = [
     {
-      value: "a"
+      value: "brown"
     },
-    { value: "b" },
-    { value: "c" }
+    { value: "black" },
+    { value: "white" }
   ];
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    const features = {
+      chest,
+      head,
+      back
+    };
+    setChest("");
+    setHead("");
+    setBack("");
+    navigate("newMain", { features });
+  };
 
   return (
     <Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>

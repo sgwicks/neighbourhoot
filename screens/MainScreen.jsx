@@ -102,7 +102,11 @@ const MainScreen = ({ navigation, route }) => {
               </TouchableWithoutFeedback>
             );
           })}
-          <ImagePicker onImageTaken={imageTakenHandler} />
+          <ImagePicker
+            onImageTaken={imageTakenHandler}
+            updateBirdList={updateBirdList}
+            birdList={birdList}
+          />
         </View>
       </ScrollView>
       <View style={styles.iconContainer}>

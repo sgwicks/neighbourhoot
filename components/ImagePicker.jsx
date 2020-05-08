@@ -88,7 +88,10 @@ const ImgPicker = props => {
       user_id,
       location: { lat, lon }
     };
-    postBird(bird);
+    postBird(bird).then(response => {
+      props.updateBirdList([...props.birdList, response]);
+    });
+
     setPickedImage();
   };
 

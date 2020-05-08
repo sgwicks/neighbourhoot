@@ -26,7 +26,7 @@ exports.postBird = bird => {
   return axios
     .post(url, bird)
     .then(response => {
-      console.log("Bird Posted");
+      return JSON.parse(response.data.body);
     })
     .catch(err => {
       console.log(err, "<<<<<<<<<<<ERRRROORR");

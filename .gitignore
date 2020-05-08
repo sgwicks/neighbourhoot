@@ -1,3 +1,5 @@
 node_modules
 .expo
-apiKey
+
+keys3.js
+env2.js

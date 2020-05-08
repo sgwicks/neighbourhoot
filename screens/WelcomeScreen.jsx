@@ -6,8 +6,8 @@ const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to Neighbourhoot!</Text>
-      <Text>You've been registered. </Text>
-      <Text>
+      <Text style={styles.mainText}>You have been registered. </Text>
+      <Text style={styles.mainText}>
         Please confirm your email address and then continue to Log in!
       </Text>
       <TouchableOpacity
@@ -24,22 +24,35 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ebebeb"
+    backgroundColor: "#2D9676"
   },
   text: {
-    color: "#101010",
-    fontSize: 24,
-    fontWeight: "bold"
+    color: "white",
+    fontSize: 30,
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    textAlign: "center",
+    // fontFamily: "Roboto",
+    marginBottom: 40
   },
   buttonContainer: {
-    backgroundColor: "blue",
+    backgroundColor: "#6D3716",
     borderRadius: 5,
     padding: 10,
-    margin: 20
+    margin: 20,
+    width: 100
   },
   buttonText: {
     fontSize: 20,
-    color: "white"
+    color: "white",
+    textAlign: "center"
+  },
+  mainText: {
+    color: "black",
+    fontSize: 15,
+    textAlign: "center",
+    paddingLeft: 30,
+    paddingRight: 30
   }
 });
 

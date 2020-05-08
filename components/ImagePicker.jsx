@@ -3,7 +3,7 @@ import { View, Button, Text, Image, StyleSheet, Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { RNS3 } from "react-native-aws3";
-import accessKeys from "../keys2";
+import accessKeys from "../keys3";
 import { postBird } from "../apiRequest/apiRequests";
 import { LocationContext, LocationProvider } from "./LocationContext";
 import BirdDropDown from "./BirdDropDown";

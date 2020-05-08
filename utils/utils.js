@@ -36,4 +36,21 @@ exports.fetchBirdsByFeatures = (features, birds) => {
 
 exports.generateUUID = () => crypto.randomBytes(16).toString('hex');
 
-exports.compareDistance = () => {};
+// takes a list of birds (array) and a feature (string)
+// returns a list of feature values
+// e.g. filterBirds(birds, chest) -> [red, brown, black]
+// e.g. filterBirds(birds, head) -> [black, brown, blue]
+
+exports.filterBirds = (birds, feature) => {
+  const mappedBirds = birds
+    .map((bird) => {
+      return bird.features[feature];
+    })
+    .sort();
+
+  const birdFeatures = mappedBirds.filter((feature, i) => {
+    if (feature === mappedBirds[i - 1]) return false;
+    return true;
+  });
+  return birdFeatures;
+};

@@ -1700,5 +1700,4 @@ const birds2 = [
   }
 ];
 
-console.log('Birds:', birds.length);
-console.log('Birds 2:', birds2.length);
+module.exports = { birds2 };

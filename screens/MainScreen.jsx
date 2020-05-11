@@ -13,6 +13,12 @@ import {
 } from "../components/LocationContext";
 import { getLocationHandler } from "../components/UserLocation";
 import NavBar from "../components/NavBar";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faMapMarker,
+  faPlusCircle,
+  faCamera
+} from "@fortawesome/free-solid-svg-icons";
 
 const MainScreen = ({ navigation, route }) => {
   const [context, setContext] = useContext(LocationContext);
@@ -59,6 +65,14 @@ const MainScreen = ({ navigation, route }) => {
     getLocation();
   }, []);
 
+  const handlePress = () => {
+    navigation.navigate("MainAddBird", {
+      birdList,
+      updateBirdList,
+      back: "newMain"
+    });
+  };
+
   if (isLoading)
     return (
       <View>
@@ -88,10 +102,16 @@ const MainScreen = ({ navigation, route }) => {
               </TouchableWithoutFeedback>
             );
           })}
-          <ImagePicker
+          {/* <ImagePicker
             onImageTaken={imageTakenHandler}
             updateBirdList={updateBirdList}
             birdList={birdList}
+          /> */}
+          <FontAwesomeIcon
+            icon={faCamera}
+            size={30}
+            style={{ alignSelf: "center", flex: 1, marginTop: 20 }}
+            onPress={handlePress}
           />
         </View>
       </ScrollView>

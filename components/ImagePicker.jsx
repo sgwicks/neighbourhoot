@@ -1,5 +1,13 @@
 import React, { useState, useContext } from "react";
-import { View, Button, Text, Image, StyleSheet, Alert } from "react-native";
+import {
+  View,
+  Button,
+  Text,
+  Image,
+  StyleSheet,
+  Alert,
+  TouchableOpacity
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { RNS3 } from "react-native-aws3";
@@ -7,7 +15,7 @@ import accessKeys from "../keys3";
 import { postBird } from "../apiRequest/apiRequests";
 import { LocationContext, LocationProvider } from "./LocationContext";
 import BirdDropDown from "./BirdDropDown";
-import { TouchableOpacity } from "react-native-gesture-handler";
+// import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,6 +25,9 @@ const ImgPicker = props => {
   const [pickedImage, setPickedImage] = useState();
   const [img_url, setImageURL] = useState("");
   const [bird_name, setBird_Name] = useState("");
+
+  const { navigation } = props;
+  const { birdList, updateBirdList, back } = props.route.params;
 
   const verifyPermissions = async () => {
     const result = await Permissions.askAsync(
@@ -90,10 +101,15 @@ const ImgPicker = props => {
       user_id,
       location: { lat, lon }
     };
-    postBird(bird).then(response => {
-      props.updateBirdList([...props.birdList, response]);
-    });
-    setPickedImage();
+    postBird(bird)
+      .then(response => {
+        updateBirdList([...birdList, response]);
+        setPickedImage();
+      })
+      .then(() => {
+        navigation.navigate(back);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -105,13 +121,15 @@ const ImgPicker = props => {
           <Image style={styles.image} source={{ uri: pickedImage }} />
         )}
       </View>
-      <FontAwesomeIcon
-        icon={faCamera}
-        onPress={takeImageHandler}
-        size={30}
-        style={{ alignSelf: "center", flex: 1 }}
-        takeImageHandler={takeImageHandler}
-      />
+      <TouchableOpacity>
+        <FontAwesomeIcon
+          icon={faCamera}
+          onPress={takeImageHandler}
+          size={30}
+          style={{ alignSelf: "center", flex: 1 }}
+          takeImageHandler={takeImageHandler}
+        />
+      </TouchableOpacity>
       <BirdDropDown setBird_Name={setBird_Name} />
       <TouchableOpacity onPress={postBirdHandler}>
         <Text>Post Bird Sighting</Text>

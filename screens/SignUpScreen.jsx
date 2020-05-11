@@ -34,7 +34,7 @@ const SignUpScreen = ({ navigation }) => {
     setMode(currentMode);
   };
 
-  const showDatepicker = () => {
+  const showDatePicker = () => {
     showMode("date");
   };
 

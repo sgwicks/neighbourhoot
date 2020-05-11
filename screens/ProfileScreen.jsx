@@ -27,7 +27,11 @@ const ProfileScreen = ({ navigation }) => {
   }, [trigger]);
 
   const handlePress = () => {
-    navigation.navigate("ProfileAddBird", { birdList, updateBirdList });
+    navigation.navigate("ProfileAddBird", {
+      birdList,
+      updateBirdList,
+      back: "ProfileScreen"
+    });
   };
 
   return (
@@ -37,7 +41,7 @@ const ProfileScreen = ({ navigation }) => {
           icon={faCamera}
           size={30}
           style={{ alignSelf: "center", flex: 1, marginTop: 20 }}
-          onPress={takeImageHandler}
+          onPress={handlePress}
         />
       </View>
       <ScrollView style={styles.addSighting}>

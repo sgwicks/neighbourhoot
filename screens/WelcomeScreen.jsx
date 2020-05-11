@@ -1,11 +1,21 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+  Image
+} from "react-native";
 
 const WelcomeScreen = ({ navigation }) => {
   const { navigate } = navigation;
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Neighbourht!</Text>
+      <Text style={styles.text}>
+        Welcome to Neighbourh
+        <Image source={require("../images/owl_logo.png")} />t
+      </Text>
       <Text style={styles.mainText}>You have been registered. </Text>
       <Text style={styles.mainText}>
         Please confirm your email address and then continue to Log in!

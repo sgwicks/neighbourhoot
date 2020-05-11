@@ -4,7 +4,8 @@ import {
   faMapMarker,
   faPlusCircle,
   faCamera,
-  faSearch
+  faSearch,
+  faUserCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 
@@ -37,7 +38,7 @@ const NavBar = ({ navigation, birdList }) => {
       />
 
       <FontAwesomeIcon
-        icon={faPlusCircle}
+        icon={faUserCircle}
         size={30}
         onPress={() => navigate("Profile")}
         style={{

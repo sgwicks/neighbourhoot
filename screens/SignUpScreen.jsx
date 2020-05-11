@@ -94,24 +94,24 @@ const SignUpScreen = ({ navigation }) => {
         </Text>
         <Text>Enter your first name</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setFirstName(text)}
         />
         <Text>Enter your surname</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setLastName(text)}
         />
         <Text>Enter your email address</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setEmail(text)}
           keyboardType="email-address"
           autoCapitalize="none"
         />
         <Text>Enter your date of birth</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           value={dateOfBirth.toLocaleDateString()}
         ></TextInput>
         <TouchableOpacity
@@ -133,14 +133,14 @@ const SignUpScreen = ({ navigation }) => {
         )}
         <Text>Enter Password</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setPassword(text)}
           secureTextEntry={true}
           keyboardType="default"
         />
         <Text>Confirm Password</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setConfirmPassword(text)}
           secureTextEntry={true}
           keyboardType="default"
@@ -206,6 +206,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderColor: "black",
     borderWidth: 1
+  },
+  shadow: {
+    shadowColor: "black",
+    shadowRadius: 8,
+    elevation: 20
   }
 });
 

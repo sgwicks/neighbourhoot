@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 
-const NavBar = ({ navigation }) => {
+const NavBar = ({ navigation, birdList }) => {
   const { navigate } = navigation;
   return (
     <View style={styles.iconContainer}>
@@ -15,7 +15,7 @@ const NavBar = ({ navigation }) => {
         icon={faMapMarker}
         size={30}
         color="#DD4B3E"
-        onPress={() => navigate("NewPlace", birdList)}
+        onPress={() => navigate("NewPlace", { birdList })}
         style={{
           alignSelf: "flex-start",
           top: 20,

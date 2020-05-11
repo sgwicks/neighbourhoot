@@ -93,7 +93,7 @@ const MainScreen = ({ navigation, route }) => {
           />
         </View>
       </ScrollView>
-      <NavBar navigation={navigation} />
+      <NavBar navigation={navigation} birdList={birdList} />
     </>
   );
 };

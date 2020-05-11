@@ -59,6 +59,11 @@ export default function App() {
           <Header title="Birds" />
           <RootStack.Navigator>
             <RootStack.Screen
+              name="Profile"
+              component={ProfileView}
+              options={{ title: "Profile" }}
+            />
+            <RootStack.Screen
               name="Home"
               component={HomeScreen}
               options={{ title: "Home" }}
@@ -98,11 +103,6 @@ export default function App() {
               name="Welcome"
               component={WelcomeScreen}
               options={{ title: "Welcome" }}
-            />
-            <RootStack.Screen
-              name="Profile"
-              component={ProfileView}
-              options={{ title: "Profile" }}
             />
           </RootStack.Navigator>
         </NavigationContainer>

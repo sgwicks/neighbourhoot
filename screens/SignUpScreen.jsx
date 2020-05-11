@@ -20,6 +20,7 @@ const SignUpScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
@@ -28,8 +29,13 @@ const SignUpScreen = ({ navigation }) => {
     setDateOfBirth(currentDate);
   };
 
-  const showDatePicker = () => {
+  const showMode = currentMode => {
     setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode("date");
   };
 
   const handleSubmit = async event => {
@@ -117,9 +123,8 @@ const SignUpScreen = ({ navigation }) => {
         </TouchableOpacity>
         {show && (
           <DateTimePicker
-            // style={{ textColor: "red" }}
             testID="dateTimePicker"
-            mode="date"
+            mode={mode}
             display="spinner"
             value={dateOfBirth}
             onChange={onChange}

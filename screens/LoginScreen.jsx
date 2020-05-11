@@ -48,7 +48,7 @@ const LoginScreen = ({ navigation }) => {
 
         <Text>Enter your email address</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setEmail(text)}
           value={email}
           keyboardType="email-address"
@@ -57,7 +57,7 @@ const LoginScreen = ({ navigation }) => {
 
         <Text>Enter your password</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setPassword(text)}
           value={password}
           secureTextEntry={true}
@@ -116,6 +116,11 @@ const styles = StyleSheet.create({
   },
   errorMsg: {
     color: "red"
+  },
+  shadow: {
+    shadowColor: "black",
+    shadowRadius: 8,
+    elevation: 20
   }
 });
 

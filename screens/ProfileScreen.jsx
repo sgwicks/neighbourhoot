@@ -7,6 +7,12 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import NavBar from "../components/NavBar";
 import MapPreview from "../components/MapPreview";
 import NewPlaceScreen from "./NewPlaceScreen";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+  faMapMarker,
+  faPlusCircle,
+  faCamera
+} from "@fortawesome/free-solid-svg-icons";
 
 const ProfileScreen = ({ navigation }) => {
   const [context, setContext] = useContext(LocationContext);
@@ -27,12 +33,12 @@ const ProfileScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View>
-        <TouchableWithoutFeedback
-          onPress={handlePress}
-          style={styles.addSightingButton}
-        >
-          <Text>Add Sighting!</Text>
-        </TouchableWithoutFeedback>
+        <FontAwesomeIcon
+          icon={faCamera}
+          size={30}
+          style={{ alignSelf: "center", flex: 1, marginTop: 20 }}
+          onPress={takeImageHandler}
+        />
       </View>
       <ScrollView style={styles.addSighting}>
         <View style={styles.profileGallery}>
@@ -72,8 +78,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     alignItems: "center",
     backgroundColor: "#2D9676",
-    justifyContent: "space-around",
-    borderWidth: 2
+    justifyContent: "space-around"
   },
   birds: {
     height: 100,
@@ -81,19 +86,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     width: 100,
-    borderWidth: 1,
+
     // borderColor: "black",
-    marginBottom: 40,
+    margin: 10,
+    justifyContent: "center",
     borderRadius: 20
   },
   mapContainer: {
     width: "100%",
-    height: 200,
-    borderWidth: 1
+    height: 200
   },
   addSighting: {
-    width: "100%",
-    borderWidth: 1
+    width: "100%"
   },
   addSightingButton: {
     width: "100%",
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
   },
   profileGallery: {
     // flex: 1,
-    borderWidth: 1,
+
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",

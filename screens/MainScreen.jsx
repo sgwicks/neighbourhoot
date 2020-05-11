@@ -69,7 +69,9 @@ const MainScreen = ({ navigation, route }) => {
     <>
       <ScrollView>
         <View style={styles.container}>
-          <Text style={styles.text}>Birds in your area</Text>
+          <View style={styles.title}>
+            <Text style={styles.text}>Birds in your area:</Text>
+          </View>
           {birdList.map((bird, i) => {
             return (
               <TouchableWithoutFeedback
@@ -106,6 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     borderRadius: 20
   },
+
   container: {
     flex: 1,
     flexDirection: "row",
@@ -118,7 +121,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
-    textTransform: "uppercase",
     textAlign: "center",
     fontFamily: "System",
     marginBottom: 40
@@ -143,6 +145,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 4,
     height: 60,
     justifyContent: "space-around"
+  },
+  title: {
+    flexBasis: "100%",
+    flexShrink: 0
   }
 });
 

@@ -57,30 +57,24 @@ export default function App() {
       <View style={styles.screen}>
         <NavigationContainer>
           <Header title="Birds" />
-          <RootStack.Navigator>
-            <RootStack.Screen
-              name="Profile"
-              component={ProfileView}
-              options={{ title: "Profile" }}
-            />
+          <RootStack.Navigator
+            screenOptions={{
+              headerStyle: { backgroundColor: "#2d9676", border: "none" },
+              headerTintColor: "#fff"
+            }}
+          >
             <RootStack.Screen
               name="Home"
               component={HomeScreen}
               options={{ title: "Home" }}
             />
-
             <RootStack.Screen
-              name="Main"
-              component={MainView}
-              options={{
-                headerRight: () => (
-                  <Button
-                    onPress={() => navigation.navigate(ProfileScreen)}
-                    title="Info"
-                  />
-                )
-              }}
+              name="Profile"
+              component={ProfileView}
+              options={{ title: "Profile" }}
             />
+
+            <RootStack.Screen name="Main" component={MainView} />
 
             <RootStack.Screen
               name="Login"
@@ -115,6 +109,9 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1
   },
+  header: {
+    backgroundColor: "#F5FCFF"
+  },
   container: {
     flex: 1,
     justifyContent: "center",
@@ -124,7 +121,6 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: "center",
-
     margin: 10
   },
   instructions: {

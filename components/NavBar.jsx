@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faMapMarker,
   faPlusCircle,
-  faCamera
+  faCamera,
+  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 
@@ -19,32 +20,29 @@ const NavBar = ({ navigation, birdList }) => {
         style={{
           alignSelf: "flex-start",
           top: 20,
-          bottom: 10,
+          bottom: 20,
           left: 20,
           flex: 1
         }}
       />
-
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => {
-          navigate("FilterModal");
-        }}
-      >
-        <Text style={styles.buttonText}>Filter</Text>
-      </TouchableOpacity>
       <FontAwesomeIcon
-        icon={faCamera}
+        icon={faSearch}
         size={30}
-        style={{ alignSelf: "flex-end", bottom: 20, right: 75, flex: 1 }}
+        onPress={() => navigate("FilterModal", { birdList })}
+        style={{
+          alignSelf: "center",
+          bottomMargin: 30,
+          flex: 1
+        }}
       />
+
       <FontAwesomeIcon
         icon={faPlusCircle}
         size={30}
         onPress={() => navigate("Profile")}
         style={{
           alignSelf: "flex-end",
-          bottom: 25,
+          bottom: 18,
           right: 20,
           flex: 1
         }}

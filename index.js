@@ -4,6 +4,8 @@ import App from "./App";
 import Amplify from "aws-amplify-react-native";
 import config from "./src/config";
 
+console.disableYellowBox = true;
+
 Amplify.configure({
   Auth: {
     mandatorySignId: true,

@@ -5,7 +5,7 @@ const WelcomeScreen = ({ navigation }) => {
   const { navigate } = navigation;
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Neighbourhoot!</Text>
+      <Text style={styles.text}>Welcome to Neighbourht!</Text>
       <Text style={styles.mainText}>You have been registered. </Text>
       <Text style={styles.mainText}>
         Please confirm your email address and then continue to Log in!

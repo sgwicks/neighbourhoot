@@ -8,6 +8,8 @@ import { postBird } from "../apiRequest/apiRequests";
 import { LocationContext, LocationProvider } from "./LocationContext";
 import BirdDropDown from "./BirdDropDown";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
 const ImgPicker = props => {
   const [context, setContext] = useContext(LocationContext);
@@ -103,13 +105,14 @@ const ImgPicker = props => {
           <Image style={styles.image} source={{ uri: pickedImage }} />
         )}
       </View>
-      <TouchableOpacity onPress={takeImageHandler}>
-        <Text>Take Image</Text>
-      </TouchableOpacity>
-      <BirdDropDown
-        containerStyle={{ width: 170 }}
-        setBird_Name={setBird_Name}
+      <FontAwesomeIcon
+        icon={faCamera}
+        onPress={takeImageHandler}
+        size={30}
+        style={{ alignSelf: "center", flex: 1 }}
+        takeImageHandler={takeImageHandler}
       />
+      <BirdDropDown setBird_Name={setBird_Name} />
       <TouchableOpacity onPress={postBirdHandler}>
         <Text>Post Bird Sighting</Text>
       </TouchableOpacity>
@@ -120,10 +123,12 @@ const ImgPicker = props => {
 const styles = StyleSheet.create({
   imagePicker: {
     alignItems: "center",
-    marginBottom: 15
+    marginBottom: 15,
+    flexBasis: "100%",
+    flexShrink: 0
   },
   imagePreview: {
-    width: "100%",
+    width: 200,
     height: 200,
     marginBottom: 10,
     justifyContent: "center",

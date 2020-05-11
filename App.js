@@ -59,47 +59,58 @@ export default function App() {
           <Header />
           <RootStack.Navigator
             screenOptions={{
-              headerStyle: { backgroundColor: "#2d9676", border: "none" },
+              headerStyle: {
+                backgroundColor: "#2d9676",
+                border: 0,
+                elevation: 0,
+                shadowOpacity: 0,
+                borderBottomWidth: 0
+              },
               headerTintColor: "#fff"
             }}
+            // headerMode="none"
           >
             <RootStack.Screen
               name="Home"
               component={HomeScreen}
-              options={{ title: "Home" }}
+              options={{ title: "" }}
             />
             <RootStack.Screen
               name="Profile"
               component={ProfileView}
-              options={{ title: "Profile" }}
+              options={{ title: "" }}
             />
 
-            <RootStack.Screen name="Main" component={MainView} />
+            <RootStack.Screen
+              name="Main"
+              component={MainView}
+              options={{ title: "" }}
+            />
 
             <RootStack.Screen
               name="Login"
               component={LoginScreen}
-              options={{ title: "Login" }}
+              options={{ title: "" }}
             />
 
             <RootStack.Screen
               name="NewPlace"
               component={NewPlaceScreen}
-              options={{ title: "New Place Screen" }}
+              options={{ title: "" }}
             />
 
             <RootStack.Screen
               name="SignUp"
               component={SignUpScreen}
-              options={{ title: "Sign Up" }}
+              options={{ title: "" }}
             />
             <RootStack.Screen
               name="Welcome"
               component={WelcomeScreen}
-              options={{ title: "Welcome" }}
+              options={{ title: "" }}
             />
             <ProfileStack.Screen
-              options={{ title: "Add a Bird" }}
+              options={{ title: "" }}
               name="AddBird"
               component={ImagePicker}
             />

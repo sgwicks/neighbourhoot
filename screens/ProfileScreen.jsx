@@ -13,16 +13,19 @@ import {
   faPlusCircle,
   faCamera
 } from "@fortawesome/free-solid-svg-icons";
+import Loading from "./Loading";
 
 const ProfileScreen = ({ navigation }) => {
   const [context, setContext] = useContext(LocationContext);
   const [birdList, updateBirdList] = useState([]);
   const { user_id } = context;
   const [trigger, toggleTrigger] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getBirdsByUserId(user_id).then(response => {
       updateBirdList(response);
+      setIsLoading(false);
     });
   }, [trigger]);
 
@@ -33,6 +36,8 @@ const ProfileScreen = ({ navigation }) => {
       back: "ProfileScreen"
     });
   };
+
+  if (isLoading) return <Loading />;
 
   return (
     <View style={styles.container}>

@@ -131,20 +131,38 @@ const ImgPicker = props => {
         />
       </TouchableOpacity>
       <BirdDropDown setBird_Name={setBird_Name} />
-      <TouchableOpacity onPress={postBirdHandler}>
-        <Text>Post Bird Sighting</Text>
+      <TouchableOpacity
+        style={styles.postButtonContainer}
+        onPress={postBirdHandler}
+      >
+        <Text style={styles.postButton}>Post Bird Sighting</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  postButtonContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#6D3716",
+    borderRadius: 5,
+    padding: 10,
+    margin: 20,
+    width: 200
+  },
+  postButton: {
+    fontSize: 20,
+    color: "white",
+    textAlign: "center"
+  },
   imagePicker: {
-    marginTop: 20,
+    paddingTop: 20,
     alignItems: "center",
     marginBottom: 15,
     flexBasis: "100%",
-    flexShrink: 0
+    flexShrink: 0,
+    backgroundColor: "#2D9676"
   },
   imagePreview: {
     width: 200,

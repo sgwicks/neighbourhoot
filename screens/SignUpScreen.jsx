@@ -106,7 +106,7 @@ const SignUpScreen = ({ navigation }) => {
         <TextInput
           style={[styles.textInput, styles.shadow]}
           onChangeText={text => setEmail(text)}
-          keyboardType="email-address"
+          keyboardType="email-saddress"
           autoCapitalize="none"
         />
         <Text>Enter your date of birth</Text>
@@ -121,6 +121,7 @@ const SignUpScreen = ({ navigation }) => {
         >
           <Text>Select date of birth</Text>
         </TouchableOpacity>
+
         {show && (
           <DateTimePicker
             testID="dateTimePicker"
@@ -131,6 +132,7 @@ const SignUpScreen = ({ navigation }) => {
             textColor="red"
           />
         )}
+
         <Text>Enter Password</Text>
         <TextInput
           style={[styles.textInput, styles.shadow]}

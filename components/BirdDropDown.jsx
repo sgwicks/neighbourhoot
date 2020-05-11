@@ -29,7 +29,11 @@ const BirdDropDown = props => {
         label="Bird Name"
         data={birdNames}
         containerStyle={{ width: "50%" }}
-        pickerStyle={{ borderBottomColor: "transparent", borderWidth: 0 }}
+        pickerStyle={{
+          borderBottomColor: "transparent",
+          borderWidth: 0
+        }}
+        baseColor="white"
         onChangeText={handleChange}
       />
     </>

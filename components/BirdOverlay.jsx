@@ -6,6 +6,7 @@ import {
   TouchableOpacity
 } from "react-native-gesture-handler";
 import { deleteBird } from "../apiRequest/apiRequests";
+import { stringToTitleCase } from "../utils/utils";
 
 const BirdOverlay = ({ route, navigation }) => {
   const { navigate } = navigation;
@@ -44,7 +45,12 @@ const BirdOverlay = ({ route, navigation }) => {
   };
 
   return (
-    <Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
+    <Overlay
+      visible={isVisible}
+      onClose={onClose}
+      closeOnTouchOutside
+      childrenWrapperStyle={{ borderRadius: 10 }}
+    >
       <Image style={{ width: 300, height: 300 }} source={{ uri: img_url }} />
       <Text style={styles.text}>{bird_name}</Text>
       {featureList(features)}

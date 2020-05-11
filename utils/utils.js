@@ -1,5 +1,3 @@
-const crypto = require('crypto');
-
 exports.findDistance = (point1, point2) => {
   const { lat1, lon1 } = point1;
   const { lat2, lon2 } = point2;
@@ -23,7 +21,7 @@ exports.findDistance = (point1, point2) => {
 exports.fetchBirdsByFeatures = (features, birds) => {
   if (!features) return [];
 
-  return birds.filter((bird) => {
+  return birds.filter(bird => {
     let isMatch = true;
     for (key in features) {
       if (bird.features[key] !== features[key]) {
@@ -34,8 +32,6 @@ exports.fetchBirdsByFeatures = (features, birds) => {
   });
 };
 
-exports.generateUUID = () => crypto.randomBytes(16).toString('hex');
-
 // takes a list of birds (array) and a feature (string)
 // returns a list of feature values
 // e.g. filterBirds(birds, chest) -> [red, brown, black]
@@ -43,7 +39,7 @@ exports.generateUUID = () => crypto.randomBytes(16).toString('hex');
 
 exports.filterBirds = (birds, feature) => {
   const mappedBirds = birds
-    .map((bird) => {
+    .map(bird => {
       return bird.features[feature];
     })
     .sort();
@@ -53,4 +49,19 @@ exports.filterBirds = (birds, feature) => {
     return true;
   });
   return birdFeatures;
+};
+
+exports.stringToTitleCase = str => {
+  if (!str) return "";
+
+  const sentence = str
+    .split(" ")
+    .map(word => {
+      const title = word.split("");
+      title[0] = title[0].toUpperCase();
+      return title.join("");
+    })
+    .join(" ");
+
+  return sentence;
 };

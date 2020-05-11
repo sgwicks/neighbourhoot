@@ -14,7 +14,11 @@ const WelcomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.text}>
         Welcome to Neighbourh
-        <Image source={require("../images/owl_logo.png")} />t
+        <Image
+          source={require("../images/owl_logo.png")}
+          style={{ height: 150, width: 150, resizeMode: contain }}
+        />
+        t
       </Text>
       <Text style={styles.mainText}>You have been registered. </Text>
       <Text style={styles.mainText}>

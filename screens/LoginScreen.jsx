@@ -119,8 +119,12 @@ const styles = StyleSheet.create({
   },
   shadow: {
     shadowColor: "black",
-    shadowRadius: 8,
-    elevation: 20
+    shadowRadius: 10,
+    elevation: 20,
+    shadowOffset: {
+      width: 3,
+      height: 5
+    }
   }
 });
 

@@ -140,6 +140,7 @@ const ImgPicker = props => {
 
 const styles = StyleSheet.create({
   imagePicker: {
+    marginTop: 20,
     alignItems: "center",
     marginBottom: 15,
     flexBasis: "100%",

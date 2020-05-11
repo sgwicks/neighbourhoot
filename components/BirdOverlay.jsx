@@ -28,7 +28,7 @@ const BirdOverlay = ({ route, navigation }) => {
     const list = [];
     for (const key in features) {
       list.push(
-        <Text key={key}>
+        <Text key={key} style={{ alignSelf: "flex-start", marginLeft: 20 }}>
           {key}: {features[key]}
         </Text>
       );
@@ -45,12 +45,12 @@ const BirdOverlay = ({ route, navigation }) => {
 
   return (
     <Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
-      <Image style={{ width: 100, height: 100 }} source={{ uri: img_url }} />
+      <Image style={{ width: 300, height: 300 }} source={{ uri: img_url }} />
       <Text style={styles.text}>{bird_name}</Text>
-      <Text>{featureList(features)}</Text>
+      {featureList(features)}
       {screen === "ProfileScreen" && (
-        <TouchableOpacity onPress={handleDelete}>
-          <Text>Delete</Text>
+        <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+          <Text style={styles.delete}>Delete</Text>
         </TouchableOpacity>
       )}
     </Overlay>
@@ -59,8 +59,22 @@ const BirdOverlay = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 10,
+    fontSize: 20,
+    textAlign: "center",
+    marginBottom: 10
+  },
+  delete: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
     textAlign: "center"
+  },
+  deleteButton: {
+    backgroundColor: "red",
+    borderRadius: 5,
+    padding: 5,
+    margin: 20,
+    width: 100
   }
 });
 

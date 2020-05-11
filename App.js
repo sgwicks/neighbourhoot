@@ -56,7 +56,7 @@ export default function App() {
     <LocationProvider>
       <View style={styles.screen}>
         <NavigationContainer>
-          <Header title="Birds" />
+          <Header />
           <RootStack.Navigator
             screenOptions={{
               headerStyle: { backgroundColor: "#2d9676", border: "none" },

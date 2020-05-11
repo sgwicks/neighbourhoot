@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 const Header = props => {
   return (
     <View style={styles.header}>
       <Text style={styles.headerTitle}>{props.title}</Text>
+      <Image source={require("../images/owl_logo.png")} />
     </View>
   );
 };
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 90,
     paddingTop: 36,
-    backgroundColor: "#f7287b",
+    backgroundColor: "#207053",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -24,3 +25,5 @@ const styles = StyleSheet.create({
   }
 });
 export default Header;
+
+// "#f7287b"

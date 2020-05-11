@@ -37,12 +37,12 @@ const ProfileScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View>
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           icon={faCamera}
           size={30}
           style={{ alignSelf: "center", flex: 1, marginTop: 20 }}
           onPress={handlePress}
-        />
+        /> */}
       </View>
       <ScrollView style={styles.addSighting}>
         <View style={styles.profileGallery}>
@@ -70,7 +70,12 @@ const ProfileScreen = ({ navigation }) => {
         <NewPlaceScreen />
       </View>
       <View style={styles.iconContainer}>
-        <NavBar navigation={navigation} />
+        <NavBar
+          navigation={navigation}
+          birdList={birdList}
+          updateBirdList={updateBirdList}
+          back="Profile"
+        />
       </View>
     </View>
   );

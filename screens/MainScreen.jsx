@@ -65,13 +65,13 @@ const MainScreen = ({ navigation, route }) => {
     getLocation();
   }, []);
 
-  const handlePress = () => {
-    navigation.navigate("MainAddBird", {
-      birdList,
-      updateBirdList,
-      back: "newMain"
-    });
-  };
+  // const handlePress = () => {
+  //   navigation.navigate("MainAddBird", {
+  //     birdList,
+  //     updateBirdList,
+  //     back: "newMain"
+  //   });
+  // };
 
   if (isLoading)
     return (
@@ -107,15 +107,20 @@ const MainScreen = ({ navigation, route }) => {
             updateBirdList={updateBirdList}
             birdList={birdList}
           /> */}
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             icon={faCamera}
             size={30}
             style={{ alignSelf: "center", flex: 1, marginTop: 20 }}
             onPress={handlePress}
-          />
+          /> */}
         </View>
       </ScrollView>
-      <NavBar navigation={navigation} birdList={birdList} />
+      <NavBar
+        navigation={navigation}
+        birdList={birdList}
+        updateBirdList={updateBirdList}
+        back="Main"
+      />
     </>
   );
 };

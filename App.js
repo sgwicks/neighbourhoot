@@ -36,7 +36,7 @@ const MainView = () => {
       <MainStack.Screen name="newMain" component={MainScreen} />
       <MainStack.Screen name="MyModal" component={BirdOverlay} />
       <MainStack.Screen name="FilterModal" component={FilterOverlay} />
-      <MainStack.Screen name="MainAddBird" component={ImagePicker} />
+      {/* <MainStack.Screen name="MainAddBird" component={ImagePicker} /> */}
     </MainStack.Navigator>
   );
 };
@@ -46,7 +46,7 @@ const ProfileView = () => {
     <ProfileStack.Navigator headerMode="none">
       <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
       <ProfileStack.Screen name="ProfileModal" component={BirdOverlay} />
-      <ProfileStack.Screen name="ProfileAddBird" component={ImagePicker} />
+      {/* <ProfileStack.Screen name="ProfileAddBird" component={ImagePicker} /> */}
     </ProfileStack.Navigator>
   );
 };
@@ -97,6 +97,11 @@ export default function App() {
               name="Welcome"
               component={WelcomeScreen}
               options={{ title: "Welcome" }}
+            />
+            <ProfileStack.Screen
+              options={{ title: "Add a Bird" }}
+              name="AddBird"
+              component={ImagePicker}
             />
           </RootStack.Navigator>
         </NavigationContainer>

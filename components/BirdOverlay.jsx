@@ -1,6 +1,6 @@
 import Overlay from "react-native-modal-overlay";
 import React, { Component, Fragment, useState } from "react";
-import { Text, Image } from "react-native";
+import { Text, Image, StyleSheet } from "react-native";
 import {
   TouchableWithoutFeedback,
   TouchableOpacity
@@ -46,7 +46,7 @@ const BirdOverlay = ({ route, navigation }) => {
   return (
     <Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
       <Image style={{ width: 100, height: 100 }} source={{ uri: img_url }} />
-      <Text>{bird_name}</Text>
+      <Text style={styles.text}>{bird_name}</Text>
       <Text>{featureList(features)}</Text>
       {screen === "ProfileScreen" && (
         <TouchableOpacity onPress={handleDelete}>
@@ -56,5 +56,12 @@ const BirdOverlay = ({ route, navigation }) => {
     </Overlay>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 10,
+    textAlign: "center"
+  }
+});
 
 export default BirdOverlay;

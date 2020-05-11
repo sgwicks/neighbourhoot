@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 
-const NavBar = ({ navigation, birdList }) => {
+const NavBar = ({ navigation, birdList, updateBirdList, back }) => {
   const { navigate } = navigation;
   return (
     <View style={styles.iconContainer}>
@@ -19,10 +19,12 @@ const NavBar = ({ navigation, birdList }) => {
         color="#DD4B3E"
         onPress={() => navigate("NewPlace", { birdList })}
         style={{
-          alignSelf: "flex-start",
-          top: 20,
-          bottom: 20,
-          left: 20,
+          // alignSelf: "flex-start",
+          // top: 20,
+          // bottom: 20,
+          // left: 20,
+
+          marginTop: 10,
           flex: 1
         }}
       />
@@ -31,20 +33,33 @@ const NavBar = ({ navigation, birdList }) => {
         size={30}
         onPress={() => navigate("FilterModal", { birdList })}
         style={{
-          alignSelf: "center",
-          bottomMargin: 30,
+          // alignSelf: "center",
+          // bottomMargin: 30,
+          marginTop: 10,
           flex: 1
         }}
       />
-
+      <FontAwesomeIcon
+        icon={faCamera}
+        size={30}
+        style={{ flex: 1, marginTop: 10 }}
+        onPress={() => {
+          navigate("AddBird", {
+            birdList,
+            updateBirdList,
+            back
+          });
+        }}
+      />
       <FontAwesomeIcon
         icon={faUserCircle}
         size={30}
         onPress={() => navigate("Profile")}
         style={{
-          alignSelf: "flex-end",
-          bottom: 18,
-          right: 20,
+          // alignSelf: "flex-end",
+          // bottom: 18,
+          // right: 20,
+          marginTop: 10,
           flex: 1
         }}
       />
@@ -72,7 +87,8 @@ const styles = StyleSheet.create({
     borderTopColor: "black",
     borderTopWidth: 4,
     height: 60,
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    flexDirection: "row"
   }
 });
 

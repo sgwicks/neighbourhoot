@@ -36,6 +36,7 @@ const NewPlaceScreen = props => {
   return (
     <MapView style={styles.map} region={mapRegion}>
       {databaseLocations.map((location, index) => {
+        console.log(location);
         const locationSpec = {
           latitude: context.lat,
           longitude: context.lon
@@ -43,9 +44,9 @@ const NewPlaceScreen = props => {
         return (
           <Marker
             key={index}
-            title={location.comName}
+            title={location.bird_name}
             coordinate={locationSpec}
-          ></Marker>
+          />
         );
       })}
     </MapView>

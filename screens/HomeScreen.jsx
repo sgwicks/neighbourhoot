@@ -1,24 +1,36 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ImageBackground
+} from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   const { navigate } = navigation;
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Neighbourhoot!</Text>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigate("Login")}
+      <ImageBackground
+        style={styles.image}
+        source={require("../images/pngfuel.com-3.png")}
       >
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+        <Text style={styles.text}>Welcome to Neighbourhoot!</Text>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigate("Login")}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigate("SignUp")}
-      >
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigate("SignUp")}
+        >
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
 };
@@ -50,6 +62,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "white",
     textAlign: "center"
+  },
+  image: {
+    height: "100%",
+    width: "100%"
   }
 });
 

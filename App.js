@@ -68,7 +68,7 @@ export default function App() {
               },
               headerTintColor: "#fff"
             }}
-            // headerMode="none"
+            //headerMode="none"
           >
             <RootStack.Screen
               name="Home"

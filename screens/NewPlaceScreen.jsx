@@ -36,7 +36,6 @@ const NewPlaceScreen = props => {
   return (
     <MapView style={styles.map} region={mapRegion}>
       {databaseLocations.map((location, index) => {
-        console.log(location);
         const locationSpec = {
           latitude: context.lat,
           longitude: context.lon

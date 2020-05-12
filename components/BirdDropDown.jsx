@@ -13,7 +13,7 @@ const BirdDropDown = props => {
       setBirdNames(birdNameArray);
     });
   };
-  a;
+
   useEffect(() => {
     birdsList();
   }, []);

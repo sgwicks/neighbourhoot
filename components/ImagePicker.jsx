@@ -12,7 +12,7 @@ import * as Permissions from "expo-permissions";
 import { RNS3 } from "react-native-aws3";
 import accessKeys from "../keys3";
 import { postBird } from "../apiRequest/apiRequests";
-import { LocationContext, LocationProvider } from "./LocationContext";
+import { LocationContext } from "./LocationContext";
 import BirdDropDown from "./BirdDropDown";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";

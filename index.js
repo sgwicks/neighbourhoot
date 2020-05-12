@@ -1,5 +1,4 @@
 import { registerRootComponent } from "expo";
-
 import App from "./App";
 import Amplify from "aws-amplify-react-native";
 import config from "./src/config";
@@ -15,7 +14,4 @@ Amplify.configure({
   }
 });
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in the Expo client or in a native build,
-// the environment is set up appropriately
 registerRootComponent(App);

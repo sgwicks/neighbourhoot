@@ -4,7 +4,6 @@ import { getAllBirds } from "../apiRequest/apiRequests";
 
 const BirdDropDown = props => {
   const [birdNames, setBirdNames] = useState([]);
-  const [userChoice, setUserChoice] = useState("");
   const birdsList = () => {
     getAllBirds().then(response => {
       const birdNameArray = response.map(bird => {

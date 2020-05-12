@@ -7,13 +7,14 @@ NeighbourHoot is a joint encyclopedia/social app designed to help people identif
 ## Features
 
 A user can:
-*Create a user account
-*Login using their email address and chosen password
-*See a list of birds commonly seen in their area
-*Filter this list by colours of the feathers on the front, back, and head of a bird
-*Log a sighting of a bird
-*Upload a photo of a bird
-\*Access a profile page where they can see a list of previous photos the user has taken
+
+- Create a user account
+- Login using their email address and chosen password
+- See a list of birds commonly seen in their area
+- Filter this list by colours of the feathers on the front, back, and head of a bird
+- Log a sighting of a bird
+- Upload a photo of a bird
+- Access a profile page where they can see a list of previous photos the user has taken
 
 ## Tech Stack
 
@@ -42,5 +43,6 @@ export default ENV;
 ```
 
 Finally -
-1 run `npm i` in terminal
-1 run `expo start` and use the expo app on your phone to use NeighbourHoot!
+
+1. run `npm i` in terminal
+1. run `expo start` and use the expo app on your phone to use NeighbourHoot!

@@ -5,11 +5,9 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  Button
+  ScrollView
 } from "react-native";
 import Amplify, { Auth } from "aws-amplify";
-import SignUpScreen from "./SignUpScreen";
 import { LocationContext } from "../components/LocationContext";
 const LoginScreen = ({ navigation }) => {
   const { navigate } = navigation;
@@ -25,7 +23,6 @@ const LoginScreen = ({ navigation }) => {
   const handleSubmit = async event => {
     event.preventDefault();
 
-    //AWS Cognito integration here
     try {
       if (email !== "" && password !== "") {
         const user = await Auth.signIn(email, password);
@@ -87,7 +84,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    // fontFamily: "Roboto",
     margin: 20
   },
   buttonContainer: {

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import {
   View,
-  Button,
   Text,
   Image,
   StyleSheet,
@@ -15,7 +14,6 @@ import accessKeys from "../keys3";
 import { postBird } from "../apiRequest/apiRequests";
 import { LocationContext, LocationProvider } from "./LocationContext";
 import BirdDropDown from "./BirdDropDown";
-// import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 

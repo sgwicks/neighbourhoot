@@ -5,8 +5,7 @@ import {
   StyleSheet,
   TextInput,
   ScrollView,
-  TouchableOpacity,
-  Button
+  TouchableOpacity
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Auth } from "aws-amplify";
@@ -170,7 +169,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    // fontFamily: "Roboto",
     margin: 20
   },
   buttonContainer: {

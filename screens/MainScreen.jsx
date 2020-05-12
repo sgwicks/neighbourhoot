@@ -4,21 +4,12 @@ import {
   getAllBirdsByArea,
   getBirdsByFeatures
 } from "../apiRequest/apiRequests";
-import ImagePicker from "../components/ImagePicker";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-import {
-  LocationContext,
-  LocationProvider
-} from "../components/LocationContext";
+import { LocationContext } from "../components/LocationContext";
 import { getLocationHandler } from "../components/UserLocation";
 import NavBar from "../components/NavBar";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faMapMarker,
-  faPlusCircle,
-  faCamera
-} from "@fortawesome/free-solid-svg-icons";
+
 import Loading from "./Loading";
 
 const MainScreen = ({ navigation, route }) => {
@@ -65,14 +56,6 @@ const MainScreen = ({ navigation, route }) => {
     };
     getLocation();
   }, []);
-
-  // const handlePress = () => {
-  //   navigation.navigate("MainAddBird", {
-  //     birdList,
-  //     updateBirdList,
-  //     back: "newMain"
-  //   });
-  // };
 
   if (isLoading) return <Loading />;
   return (

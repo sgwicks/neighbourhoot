@@ -25,5 +25,3 @@ const styles = StyleSheet.create({
   }
 });
 export default Header;
-
-// "#f7287b"

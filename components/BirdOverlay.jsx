@@ -1,12 +1,8 @@
 import Overlay from "react-native-modal-overlay";
-import React, { Component, Fragment, useState } from "react";
+import React, { useState } from "react";
 import { Text, Image, StyleSheet } from "react-native";
-import {
-  TouchableWithoutFeedback,
-  TouchableOpacity
-} from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { deleteBird } from "../apiRequest/apiRequests";
-import { stringToTitleCase } from "../utils/utils";
 
 const BirdOverlay = ({ route, navigation }) => {
   const { navigate } = navigation;

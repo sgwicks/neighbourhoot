@@ -1,20 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  StyleSheet,
-  ActivityIndicator
-} from "react-native";
+import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import * as Permissions from "expo-permissions";
 import { LocationContext } from "../components/LocationContext";
 import { getAllBirdsByArea } from "../apiRequest/apiRequests";
 
 const NewPlaceScreen = props => {
   const [context, setContext] = useContext(LocationContext);
   const [databaseLocations, setDatabaseLocation] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [mapRegion, setMapRegion] = useState({
     latitude: 53.7949152,
     longitude: -1.5490281,

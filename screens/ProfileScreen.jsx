@@ -1,18 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import { View, StyleSheet, Image, ScrollView } from "react-native";
 import { getBirdsByUserId } from "../apiRequest/apiRequests";
-import ImagePicker from "../components/ImagePicker";
 import { LocationContext } from "../components/LocationContext";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import NavBar from "../components/NavBar";
-import MapPreview from "../components/MapPreview";
 import NewPlaceScreen from "./NewPlaceScreen";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faMapMarker,
-  faPlusCircle,
-  faCamera
-} from "@fortawesome/free-solid-svg-icons";
 import Loading from "./Loading";
 
 const ProfileScreen = ({ navigation }) => {
@@ -41,14 +33,6 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View>
-        {/* <FontAwesomeIcon
-          icon={faCamera}
-          size={30}
-          style={{ alignSelf: "center", flex: 1, marginTop: 20 }}
-          onPress={handlePress}
-        /> */}
-      </View>
       <ScrollView style={styles.addSighting}>
         <View style={styles.profileGallery}>
           {birdList.map((bird, i) => {
@@ -100,8 +84,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     width: 100,
-
-    // borderColor: "black",
     margin: 10,
     justifyContent: "center",
     borderRadius: 20
@@ -120,8 +102,6 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   profileGallery: {
-    // flex: 1,
-
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",

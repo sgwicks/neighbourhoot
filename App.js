@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Platform, StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import SignUpScreen from "./screens/SignUpScreen";
 import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
@@ -12,23 +12,12 @@ import NewPlaceScreen from "./screens/NewPlaceScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import FilterOverlay from "./components/FilterOverlay";
 import Header from "./components/Header";
-import ProfileButton from "./components/ProfileButton";
-import * as Location from "expo-location";
-import {
-  LocationContext,
-  LocationProvider
-} from "./components/LocationContext";
+import { LocationProvider } from "./components/LocationContext";
 import ImagePicker from "./components/ImagePicker";
-
-const instructions = Platform.select({
-  ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
-  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`
-});
 
 const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
-// const navigation = useNavigation();
 
 const MainView = () => {
   return (
@@ -36,7 +25,6 @@ const MainView = () => {
       <MainStack.Screen name="newMain" component={MainScreen} />
       <MainStack.Screen name="MyModal" component={BirdOverlay} />
       <MainStack.Screen name="FilterModal" component={FilterOverlay} />
-      {/* <MainStack.Screen name="MainAddBird" component={ImagePicker} /> */}
     </MainStack.Navigator>
   );
 };
@@ -46,7 +34,6 @@ const ProfileView = () => {
     <ProfileStack.Navigator headerMode="none">
       <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} />
       <ProfileStack.Screen name="ProfileModal" component={BirdOverlay} />
-      {/* <ProfileStack.Screen name="ProfileAddBird" component={ImagePicker} /> */}
     </ProfileStack.Navigator>
   );
 };
@@ -68,7 +55,6 @@ export default function App() {
               },
               headerTintColor: "#fff"
             }}
-            //headerMode="none"
           >
             <RootStack.Screen
               name="Home"

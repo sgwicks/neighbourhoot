@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Image,
   ImageBackground
 } from "react-native";
 
@@ -14,22 +13,24 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <ImageBackground
         style={styles.image}
-        source={require("../images/pngfuel.com-3.png")}
+        source={require("../images/tree.png")}
       >
         <Text style={styles.text}>Welcome to Neighbourhoot!</Text>
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => navigate("Login")}
-        >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
+        <View style={styles.bothButtons}>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => navigate("Login")}
+          >
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => navigate("SignUp")}
-        >
-          <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => navigate("SignUp")}
+          >
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -48,8 +49,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     textAlign: "center",
-    // fontFamily: "Roboto",
-    marginBottom: 20
+    marginTop: 80,
+    marginBottom: 5,
+    backgroundColor: "rgba(0, 0, 0, 0.2)"
   },
   buttonContainer: {
     backgroundColor: "#6D3716",
@@ -66,6 +68,10 @@ const styles = StyleSheet.create({
   image: {
     height: "100%",
     width: "100%"
+  },
+  bothButtons: {
+    flexDirection: "row",
+    justifyContent: "center"
   }
 });
 

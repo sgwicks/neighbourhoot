@@ -5,21 +5,15 @@ import {
   getBirdsByFeatures
 } from "../apiRequest/apiRequests";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-
 import { LocationContext } from "../components/LocationContext";
 import { getLocationHandler } from "../components/UserLocation";
 import NavBar from "../components/NavBar";
-
 import Loading from "./Loading";
 
 const MainScreen = ({ navigation, route }) => {
   const [context, setContext] = useContext(LocationContext);
   const [birdList, updateBirdList] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
-
-  const imageTakenHandler = imagePath => {
-    setImages({ img: imagePath });
-  };
 
   useEffect(() => {
     if (route.params) {

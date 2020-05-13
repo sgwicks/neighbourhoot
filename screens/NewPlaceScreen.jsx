@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { StyleSheet } from "react-native";
-import MapView, { Marker } from "react-native-maps";
-import { LocationContext } from "../components/LocationContext";
-import { getAllBirdsByArea } from "../apiRequest/apiRequests";
+import React, { useState, useEffect, useContext } from 'react';
+import { StyleSheet } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
+import { LocationContext } from '../components/LocationContext';
+import { getAllBirdsByArea } from '../apiRequest/apiRequests';
 
-const NewPlaceScreen = props => {
+const NewPlaceScreen = (props) => {
   const [context, setContext] = useContext(LocationContext);
   const [databaseLocations, setDatabaseLocation] = useState([]);
   const [mapRegion, setMapRegion] = useState({
@@ -15,7 +15,7 @@ const NewPlaceScreen = props => {
   });
 
   useEffect(() => {
-    getAllBirdsByArea(context.location).then(birds =>
+    getAllBirdsByArea(context.location).then((birds) =>
       setDatabaseLocation(birds)
     );
     setMapRegion({
@@ -27,10 +27,10 @@ const NewPlaceScreen = props => {
 
   return (
     <MapView style={styles.map} region={mapRegion}>
-      {databaseLocations.map((location, index) => {
+      {databaseLocations.map((bird, index) => {
         const locationSpec = {
-          latitude: context.lat,
-          longitude: context.lon
+          latitude: bird.location.lat,
+          longitude: bird.location.lon
         };
         return (
           <Marker

@@ -1,0 +1,207 @@
+Common Quail
+Common Eider
+Red-legged Partridge
+Garganey
+Golden Pheasant
+Surf Scoter
+Northern Shoveler
+Lady Amherst's Pheasant
+Velvet Scoter
+Common Pheasant
+Grey Partridge
+Gadwall
+Willow Grouse
+Common Scoter
+Eurasian Wigeon
+Rock Ptarmigan
+Black Scoter
+Western Capercaillie
+Mallard
+Black Grouse
+Common Goldeneye
+Ruddy Duck
+Northern Pintail
+Mute Swan
+Smew
+Common Teal
+Whooper Swan
+Little Grebe
+Tundra Swan
+Goosander
+Brent Goose
+Red-breasted Merganser
+Red-necked Grebe
+Barnacle Goose
+Great Crested Grebe
+Egyptian Goose
+Horned Grebe
+Cackling Goose
+Common Shelduck
+Black-necked Grebe
+Canada Goose
+Mandarin Duck
+Bar-headed Goose
+Red-crested Pochard
+Rock Dove
+Greylag Goose
+Common Pochard
+Stock Dove
+Bean Goose
+Redhead
+Common Woodpigeon
+Pink-footed Goose
+European Turtle-dove
+Greater White-fronted Goose
+Ferruginous Duck
+Eurasian Collared-dove
+Long-tailed Duck
+Tufted Duck
+Greater Scaup
+European Nightjar
+Northern Fulmar
+European Shag
+Great Cormorant
+Eurasian Thick-knee
+Eurasian Oystercatcher
+Pied Avocet
+Grey Plover
+Sooty Shearwater
+Eurasian Golden Plover
+Great Shearwater
+Common Swift
+Scopoli's Shearwater
+Cory's Shearwater
+Eurasian Dotterel
+Manx Shearwater
+Common Ringed Plover
+Common Cuckoo
+Balearic Shearwater
+Little Ringed Plover
+Western Water Rail
+Corncrake
+Spotted Crake
+White Stork
+Eurasian Spoonbill
+Northern Lapwing
+Eurasian Bittern
+Common Moorhen
+Common Coot
+Whimbrel
+Eurasian Curlew
+Bar-tailed Godwit
+Red-throated Loon
+Grey Heron
+Black-tailed Godwit
+Arctic Loon
+Purple Heron
+Ruddy Turnstone
+Common Loon
+Red Knot
+Ruff
+Wilson's Storm-petrel
+Little Egret
+European Storm-petrel
+Curlew Sandpiper
+Northern Gannet
+Temminck's Stint
+Leach's Storm-petrel
+Black-legged Kittiwake
+Pomarine Jaeger
+Sanderling
+Great Skua
+Dunlin
+Purple Sandpiper
+Black-headed Gull
+Atlantic Puffin
+Black Guillemot
+Mediterranean Gull
+Razorbill
+Little Auk
+Mew Gull
+Common Murre
+Common Barn-owl
+Lesser Black-backed Gull
+Eurasian Woodcock
+European Herring Gull
+Common Snipe
+Caspian Gull
+Northern Long-eared Owl
+Jack Snipe
+Iceland Gull
+Short-eared Owl
+Tawny Owl
+Red-necked Phalarope
+Red Phalarope
+Glaucous Gull
+Osprey
+Great Black-backed Gull
+Common Sandpiper
+European Honey-buzzard
+Green Sandpiper
+Little Tern
+Spotted Redshank
+Golden Eagle
+Common Greenshank
+Western Marsh-harrier
+Hen Harrier
+Common Redshank
+Wood Sandpiper
+Black Tern
+Roseate Tern
+Montagu's Harrier
+Common Tern
+Eurasian Sparrowhawk
+Arctic Tern
+Northern Goshawk
+White-tailed Sea-eagle
+Red Kite
+Little Gull
+Sandwich Tern
+Rough-legged Buzzard
+Sabine's Gull
+Long-tailed Jaeger
+Eurasian Buzzard
+Arctic Jaeger
+Common Hoopoe
+Common Raven
+European Bee-eater
+Carrion Crow
+Barn Swallow
+Coal Tit
+Common Kingfisher
+Crested Tit
+Collared Sand Martin
+Marsh Tit
+Eurasian Wryneck
+Willow Tit
+Eurasian Green Woodpecker
+Eurasian Blue Tit
+Great Tit
+Lesser Spotted Woodpecker
+Wood Warbler
+Great Spotted Woodpecker
+Yellow-browed Warbler
+Common Kestrel
+Pallas's Leaf-warbler
+Willow Warbler
+Horned Lark
+Cetti's Warbler
+Eurasian Golden Oriole
+Eurasian Blackcap
+Red-eyed Vireo
+Melodious Warbler
+Garden Warbler
+Aquatic Warbler
+Barred Warbler
+Red-backed Shrike
+Sedge Warbler
+Marsh Warbler
+Lesser Whitethroat
+Eurasian Jackdaw
+Eurasian Nuthatch
+Scottish Crossbill
+Goldcrest
+Cirl Bunting
+Spotted Flycatcher
+Red-breasted Flycatcher
+Grey Wagtail

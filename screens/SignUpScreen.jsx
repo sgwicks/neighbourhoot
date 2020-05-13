@@ -5,8 +5,7 @@ import {
   StyleSheet,
   TextInput,
   ScrollView,
-  TouchableOpacity,
-  Button
+  TouchableOpacity
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Auth } from "aws-amplify";
@@ -20,6 +19,7 @@ const SignUpScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
@@ -28,8 +28,13 @@ const SignUpScreen = ({ navigation }) => {
     setDateOfBirth(currentDate);
   };
 
-  const showDatePicker = () => {
+  const showMode = currentMode => {
     setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatePicker = () => {
+    showMode("date");
   };
 
   const handleSubmit = async event => {
@@ -88,24 +93,24 @@ const SignUpScreen = ({ navigation }) => {
         </Text>
         <Text>Enter your first name</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setFirstName(text)}
         />
         <Text>Enter your surname</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setLastName(text)}
         />
         <Text>Enter your email address</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setEmail(text)}
-          keyboardType="email-address"
+          keyboardType="email-saddress"
           autoCapitalize="none"
         />
         <Text>Enter your date of birth</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           value={dateOfBirth.toLocaleDateString()}
         ></TextInput>
         <TouchableOpacity
@@ -115,27 +120,28 @@ const SignUpScreen = ({ navigation }) => {
         >
           <Text>Select date of birth</Text>
         </TouchableOpacity>
+
         {show && (
           <DateTimePicker
-            // style={{ textColor: "red" }}
             testID="dateTimePicker"
-            mode="date"
+            mode={mode}
             display="spinner"
             value={dateOfBirth}
             onChange={onChange}
             textColor="red"
           />
         )}
+
         <Text>Enter Password</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setPassword(text)}
           secureTextEntry={true}
           keyboardType="default"
         />
         <Text>Confirm Password</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setConfirmPassword(text)}
           secureTextEntry={true}
           keyboardType="default"
@@ -163,7 +169,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    // fontFamily: "Roboto",
     margin: 20
   },
   buttonContainer: {
@@ -201,6 +206,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderColor: "black",
     borderWidth: 1
+  },
+  shadow: {
+    shadowColor: "black",
+    shadowRadius: 8,
+    elevation: 20
   }
 });
 

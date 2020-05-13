@@ -1,9 +1,9 @@
 import Overlay from "react-native-modal-overlay";
-import React, { Component, Fragment, useState, useContext } from "react";
+import React, { useState } from "react";
 import { Dropdown } from "react-native-material-dropdown";
 import { Text, TouchableOpacity } from "react-native";
 
-const FilterOverlay = ({ route, navigation }) => {
+const FilterOverlay = ({ navigation }) => {
   const { navigate } = navigation;
   const [isVisible, updateIsVisible] = useState(true);
   const [chest, setChest] = useState("");

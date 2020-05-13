@@ -2,12 +2,13 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faMapMarker,
-  faPlusCircle,
-  faCamera
+  faCamera,
+  faSearch,
+  faUserCircle
 } from "@fortawesome/free-solid-svg-icons";
-import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 
-const NavBar = ({ navigation, birdList }) => {
+const NavBar = ({ navigation, birdList, updateBirdList, back }) => {
   const { navigate } = navigation;
   return (
     <View style={styles.iconContainer}>
@@ -17,35 +18,37 @@ const NavBar = ({ navigation, birdList }) => {
         color="#DD4B3E"
         onPress={() => navigate("NewPlace", { birdList })}
         style={{
-          alignSelf: "flex-start",
-          top: 20,
-          bottom: 10,
-          left: 20,
+          marginTop: 10,
           flex: 1
         }}
       />
-
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => {
-          navigate("FilterModal");
+      <FontAwesomeIcon
+        icon={faSearch}
+        size={30}
+        onPress={() => navigate("FilterModal", { birdList })}
+        style={{
+          marginTop: 10,
+          flex: 1
         }}
-      >
-        <Text style={styles.buttonText}>Filter</Text>
-      </TouchableOpacity>
+      />
       <FontAwesomeIcon
         icon={faCamera}
         size={30}
-        style={{ alignSelf: "flex-end", bottom: 20, right: 75, flex: 1 }}
+        style={{ flex: 1, marginTop: 10 }}
+        onPress={() => {
+          navigate("AddBird", {
+            birdList,
+            updateBirdList,
+            back
+          });
+        }}
       />
       <FontAwesomeIcon
-        icon={faPlusCircle}
+        icon={faUserCircle}
         size={30}
         onPress={() => navigate("Profile")}
         style={{
-          alignSelf: "flex-end",
-          bottom: 25,
-          right: 20,
+          marginTop: 10,
           flex: 1
         }}
       />
@@ -67,13 +70,13 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center"
   },
-
   iconContainer: {
     backgroundColor: "#2D9676",
     borderTopColor: "black",
     borderTopWidth: 4,
     height: 60,
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    flexDirection: "row"
   }
 });
 

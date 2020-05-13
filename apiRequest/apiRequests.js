@@ -8,9 +8,7 @@ exports.getAllBirdsByArea = location => {
     .then(response => {
       return JSON.parse(response.data.body);
     })
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 };
 
 exports.getAllBirds = () => {
@@ -28,9 +26,7 @@ exports.postBird = bird => {
     .then(response => {
       return JSON.parse(response.data.body);
     })
-    .catch(err => {
-      console.log(err, "<<<<<<<<<<<ERRRROORR");
-    });
+    .catch(err => console.log(err));
 };
 
 exports.getBirdsByFeatures = features => {
@@ -59,5 +55,3 @@ exports.deleteBird = (bird_id, bird_name) => {
     })
     .catch(err => console.log(err));
 };
-
-// postBird('Robin', 'https://something', '33', { lat: 54.876, lon: -1.45765 });

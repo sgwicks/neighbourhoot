@@ -1,13 +1,21 @@
 import React, { useState, useContext } from "react";
-import { View, Button, Text, Image, StyleSheet, Alert } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Alert,
+  TouchableOpacity
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import { RNS3 } from "react-native-aws3";
 import accessKeys from "../keys3";
 import { postBird } from "../apiRequest/apiRequests";
-import { LocationContext, LocationProvider } from "./LocationContext";
+import { LocationContext } from "./LocationContext";
 import BirdDropDown from "./BirdDropDown";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
 const ImgPicker = props => {
   const [context, setContext] = useContext(LocationContext);
@@ -15,6 +23,9 @@ const ImgPicker = props => {
   const [pickedImage, setPickedImage] = useState();
   const [img_url, setImageURL] = useState("");
   const [bird_name, setBird_Name] = useState("");
+
+  const { navigation } = props;
+  const { birdList, updateBirdList, back } = props.route.params;
 
   const verifyPermissions = async () => {
     const result = await Permissions.askAsync(
@@ -88,10 +99,15 @@ const ImgPicker = props => {
       user_id,
       location: { lat, lon }
     };
-    postBird(bird).then(response => {
-      props.updateBirdList([...props.birdList, response]);
-    });
-    setPickedImage();
+    postBird(bird)
+      .then(response => {
+        updateBirdList([...birdList, response]);
+        setPickedImage();
+      })
+      .then(() => {
+        navigation.navigate(back);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -103,27 +119,51 @@ const ImgPicker = props => {
           <Image style={styles.image} source={{ uri: pickedImage }} />
         )}
       </View>
-      <TouchableOpacity onPress={takeImageHandler}>
-        <Text>Take Image</Text>
+      <TouchableOpacity>
+        <FontAwesomeIcon
+          icon={faCamera}
+          onPress={takeImageHandler}
+          size={30}
+          style={{ alignSelf: "center", flex: 1 }}
+          takeImageHandler={takeImageHandler}
+        />
       </TouchableOpacity>
-      <BirdDropDown
-        containerStyle={{ width: 170 }}
-        setBird_Name={setBird_Name}
-      />
-      <TouchableOpacity onPress={postBirdHandler}>
-        <Text>Post Bird Sighting</Text>
+      <BirdDropDown setBird_Name={setBird_Name} />
+      <TouchableOpacity
+        style={styles.postButtonContainer}
+        onPress={postBirdHandler}
+      >
+        <Text style={styles.postButton}>Post Bird Sighting</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  imagePicker: {
+  postButtonContainer: {
+    justifyContent: "center",
     alignItems: "center",
-    marginBottom: 15
+    backgroundColor: "#6D3716",
+    borderRadius: 5,
+    padding: 10,
+    margin: 20,
+    width: 200
+  },
+  postButton: {
+    fontSize: 20,
+    color: "white",
+    textAlign: "center"
+  },
+  imagePicker: {
+    paddingTop: 20,
+    alignItems: "center",
+    marginBottom: 15,
+    flexBasis: "100%",
+    flexShrink: 0,
+    backgroundColor: "#2D9676"
   },
   imagePreview: {
-    width: "100%",
+    width: 200,
     height: 200,
     marginBottom: 10,
     justifyContent: "center",

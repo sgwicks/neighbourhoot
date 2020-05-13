@@ -4,7 +4,6 @@ import { getAllBirds } from "../apiRequest/apiRequests";
 
 const BirdDropDown = props => {
   const [birdNames, setBirdNames] = useState([]);
-  const [userChoice, setUserChoice] = useState("");
   const birdsList = () => {
     getAllBirds().then(response => {
       const birdNameArray = response.map(bird => {
@@ -24,12 +23,15 @@ const BirdDropDown = props => {
 
   return (
     <>
-      {console.log(userChoice)}
       <Dropdown
         label="Bird Name"
         data={birdNames}
-        containerStyle={{ width: "100%" }}
-        pickerStyle={{ borderBottomColor: "transparent", borderWidth: 0 }}
+        containerStyle={{ width: "50%" }}
+        pickerStyle={{
+          borderBottomColor: "transparent",
+          borderWidth: 0
+        }}
+        baseColor="white"
         onChangeText={handleChange}
       />
     </>

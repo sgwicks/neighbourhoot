@@ -4,24 +4,16 @@ import {
   getAllBirdsByArea,
   getBirdsByFeatures
 } from "../apiRequest/apiRequests";
-import ImagePicker from "../components/ImagePicker";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-
-import {
-  LocationContext,
-  LocationProvider
-} from "../components/LocationContext";
+import { LocationContext } from "../components/LocationContext";
 import { getLocationHandler } from "../components/UserLocation";
 import NavBar from "../components/NavBar";
+import Loading from "./Loading";
 
 const MainScreen = ({ navigation, route }) => {
   const [context, setContext] = useContext(LocationContext);
   const [birdList, updateBirdList] = useState([]);
   const [isLoading, updateIsLoading] = useState(true);
-
-  const imageTakenHandler = imagePath => {
-    setImages({ img: imagePath });
-  };
 
   useEffect(() => {
     if (route.params) {
@@ -59,17 +51,14 @@ const MainScreen = ({ navigation, route }) => {
     getLocation();
   }, []);
 
-  if (isLoading)
-    return (
-      <View>
-        <Text>Loading!</Text>
-      </View>
-    );
+  if (isLoading) return <Loading />;
   return (
     <>
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: "#2D9676" }}>
         <View style={styles.container}>
-          <Text style={styles.text}>Birds in your area</Text>
+          <View style={styles.title}>
+            <Text style={styles.text}>Birds in your area:</Text>
+          </View>
           {birdList.map((bird, i) => {
             return (
               <TouchableWithoutFeedback
@@ -86,14 +75,15 @@ const MainScreen = ({ navigation, route }) => {
               </TouchableWithoutFeedback>
             );
           })}
-          <ImagePicker
-            onImageTaken={imageTakenHandler}
-            updateBirdList={updateBirdList}
-            birdList={birdList}
-          />
         </View>
       </ScrollView>
-      <NavBar navigation={navigation} birdList={birdList} />
+      <View style={{ backgroundColor: "#2D9676", flex: 1 }} />
+      <NavBar
+        navigation={navigation}
+        birdList={birdList}
+        updateBirdList={updateBirdList}
+        back="Main"
+      />
     </>
   );
 };
@@ -106,8 +96,8 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     borderRadius: 20
   },
+
   container: {
-    flex: 1,
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
@@ -118,10 +108,10 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
-    textTransform: "uppercase",
     textAlign: "center",
     fontFamily: "System",
-    marginBottom: 40
+    marginBottom: 40,
+    marginTop: 20
   },
   buttonContainer: {
     backgroundColor: "#6D3716",
@@ -143,6 +133,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 4,
     height: 60,
     justifyContent: "space-around"
+  },
+  title: {
+    flexBasis: "100%",
+    flexShrink: 0
   }
 });
 

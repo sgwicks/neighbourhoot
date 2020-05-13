@@ -5,11 +5,9 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  Button
+  ScrollView
 } from "react-native";
 import Amplify, { Auth } from "aws-amplify";
-import SignUpScreen from "./SignUpScreen";
 import { LocationContext } from "../components/LocationContext";
 const LoginScreen = ({ navigation }) => {
   const { navigate } = navigation;
@@ -25,7 +23,6 @@ const LoginScreen = ({ navigation }) => {
   const handleSubmit = async event => {
     event.preventDefault();
 
-    //AWS Cognito integration here
     try {
       if (email !== "" && password !== "") {
         const user = await Auth.signIn(email, password);
@@ -48,7 +45,7 @@ const LoginScreen = ({ navigation }) => {
 
         <Text>Enter your email address</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setEmail(text)}
           value={email}
           keyboardType="email-address"
@@ -57,7 +54,7 @@ const LoginScreen = ({ navigation }) => {
 
         <Text>Enter your password</Text>
         <TextInput
-          style={styles.textInput}
+          style={[styles.textInput, styles.shadow]}
           onChangeText={text => setPassword(text)}
           value={password}
           secureTextEntry={true}
@@ -87,7 +84,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    // fontFamily: "Roboto",
     margin: 20
   },
   buttonContainer: {
@@ -116,6 +112,15 @@ const styles = StyleSheet.create({
   },
   errorMsg: {
     color: "red"
+  },
+  shadow: {
+    shadowColor: "black",
+    shadowRadius: 10,
+    elevation: 20,
+    shadowOffset: {
+      width: 3,
+      height: 5
+    }
   }
 });
 

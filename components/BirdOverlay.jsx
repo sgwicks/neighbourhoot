@@ -1,10 +1,7 @@
 import Overlay from "react-native-modal-overlay";
-import React, { Component, Fragment, useState } from "react";
-import { Text, Image } from "react-native";
-import {
-  TouchableWithoutFeedback,
-  TouchableOpacity
-} from "react-native-gesture-handler";
+import React, { useState } from "react";
+import { Text, Image, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { deleteBird } from "../apiRequest/apiRequests";
 
 const BirdOverlay = ({ route, navigation }) => {
@@ -28,7 +25,7 @@ const BirdOverlay = ({ route, navigation }) => {
     const list = [];
     for (const key in features) {
       list.push(
-        <Text key={key}>
+        <Text key={key} style={{ alignSelf: "flex-start", marginLeft: 20 }}>
           {key}: {features[key]}
         </Text>
       );
@@ -44,17 +41,43 @@ const BirdOverlay = ({ route, navigation }) => {
   };
 
   return (
-    <Overlay visible={isVisible} onClose={onClose} closeOnTouchOutside>
-      <Image style={{ width: 100, height: 100 }} source={{ uri: img_url }} />
-      <Text>{bird_name}</Text>
-      <Text>{featureList(features)}</Text>
+    <Overlay
+      visible={isVisible}
+      onClose={onClose}
+      closeOnTouchOutside
+      childrenWrapperStyle={{ borderRadius: 10 }}
+    >
+      <Image style={{ width: 300, height: 300 }} source={{ uri: img_url }} />
+      <Text style={styles.text}>{bird_name}</Text>
+      {featureList(features)}
       {screen === "ProfileScreen" && (
-        <TouchableOpacity onPress={handleDelete}>
-          <Text>Delete</Text>
+        <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+          <Text style={styles.delete}>Delete</Text>
         </TouchableOpacity>
       )}
     </Overlay>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 20,
+    textAlign: "center",
+    marginBottom: 10
+  },
+  delete: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
+    textAlign: "center"
+  },
+  deleteButton: {
+    backgroundColor: "red",
+    borderRadius: 5,
+    padding: 5,
+    margin: 20,
+    width: 100
+  }
+});
 
 export default BirdOverlay;
